@@ -9,20 +9,20 @@ import UIKit
 
 extension UIFont {
     //MARK: font extension
-    static func montserratBold(size: CGFloat) -> UIFont {
-        return UIFont(name: "Montserrat-Bold", size: size) ?? .systemFont(ofSize: size)
+    static func montserratVariableFontWght(size: CGFloat) -> UIFont {
+        return UIFont(name: "Montserrat-VariableFont_wght", size: size) ?? .systemFont(ofSize: size)
     }
 
-    static func montserratMedium(size: CGFloat) -> UIFont {
-        return UIFont(name: "Montserrat-Medium", size: size) ?? .systemFont(ofSize: size)
+    static func montserratItalicVariableFontwght(size: CGFloat) -> UIFont {
+        return UIFont(name: "Montserrat-Italic-VariableFont_wght", size: size) ?? .systemFont(ofSize: size)
     }
 
-    static func montserratRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "Montserrat-Regular", size: size) ?? .systemFont(ofSize: size)
+    static func goldmanRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Goldman-Regular", size: size) ?? .systemFont(ofSize: size)
     }
 
-    static func montserratBlack(size: CGFloat) -> UIFont {
-        return UIFont(name: "Montserrat-Black", size: size) ?? .systemFont(ofSize: size)
+    static func goldmanBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Goldman-Bold", size: size) ?? .systemFont(ofSize: size)
     }
 }
 

@@ -10,6 +10,13 @@ import UIKit
 extension UIColor {
     static let mainViewsBackViewBlack = UIColor(hexString: "#17191D")
 
+    static let viewControllerBackgroundColor = UIColor(hexString: "#2B2932")
+
+    static let signInButtonBackgroundColor = UIColor(hexString: "#0568FB")
+
+
+
+
     static let titlesBlack = UIColor(hexString: "#1B1E24")
 
     static let grayLabel = UIColor(hexString: "#969696")
@@ -22,7 +29,7 @@ extension UIColor {
 
     static let pointViewColor = UIColor(hexString: "#20242C")
 
-    static let buttonBackgroundColor = UIColor(hexString: "#5F73F8")
+
 
     static let backgroundColorGamePointView = UIColor(hexString: "#00000033")
 

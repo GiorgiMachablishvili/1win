@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  1win
+//  StakeApp
 //
-//  Created by Gio's Mac on 08.02.25.
+//  Created by Gio's Mac on 16.01.25.
 //
 
 import UIKit
@@ -13,11 +13,69 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        window = UIWindow(windowScene: windowScene)
+        let mainViewController = SignInController()
+        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
+        if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.setNavigationBarHidden(true, animated: false)
+            }
+
+//        ifUserISCreatedOrNot()
+        window?.makeKeyAndVisible()
     }
+
+
+    func ifUserISCreatedOrNot() {
+        if let userId = UserDefaults.standard.string(forKey: "userId"), !userId.isEmpty {
+            print(userId)
+            let mainViewController = MainScreenView()
+            UserDefaults.standard.setValue(false, forKey: "isGuestUser")
+            let navigationController = UINavigationController(rootViewController: mainViewController)
+            changeRootViewController(navigationController)
+            if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.setNavigationBarHidden(true, animated: false)
+            }
+        } else {
+            let signInViewController = SignInController()
+            let navigationController = UINavigationController(rootViewController: signInViewController)
+            changeRootViewController(navigationController)
+            if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.setNavigationBarHidden(true, animated: false)
+            }
+        }
+    }
+
+    func changeRootViewController(_ rootViewController: UIViewController, animated: Bool = true) {
+        // Get the current SceneDelegate's window
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate,
+              let window = sceneDelegate.window else { return }
+
+        if animated {
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = rootViewController
+            })
+        } else {
+            window.rootViewController = rootViewController
+        }
+        window.makeKeyAndVisible()
+    }
+
+//    private func setupInitialRootViewController() {
+//        if let userId = UserDefaults.standard.string(forKey: "userId"), !userId.isEmpty {
+//            let mainViewController = MainViewControllerTab()
+//            UserDefaults.standard.setValue(false, forKey: "isGuestUser")
+//            let navigationController = UINavigationController(rootViewController: mainViewController)
+//            changeRootViewController(navigationController)
+//        } else {
+//            let signInViewController = SignInView()
+//            let navigationController = UINavigationController(rootViewController: signInViewController)
+//            changeRootViewController(navigationController)
+//        }
+//    }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -46,7 +104,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 

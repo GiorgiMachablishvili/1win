@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CC8E2D57D358005B0FD2 /* AppDelegate.swift */; };
 		E3E8CC912D57D358005B0FD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CC902D57D358005B0FD2 /* SceneDelegate.swift */; };
-		E3E8CC932D57D358005B0FD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CC922D57D358005B0FD2 /* ViewController.swift */; };
+		E3E8CC932D57D358005B0FD2 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CC922D57D358005B0FD2 /* SignInController.swift */; };
 		E3E8CC982D57D35A005B0FD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CC972D57D35A005B0FD2 /* Assets.xcassets */; };
 		E3E8CC9B2D57D35A005B0FD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CC992D57D35A005B0FD2 /* LaunchScreen.storyboard */; };
 		E3E8CCAB2D57D4DC005B0FD2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCAA2D57D4DC005B0FD2 /* NetworkManager.swift */; };
@@ -27,13 +27,24 @@
 		E3E8CCC82D57D6B5005B0FD2 /* UICornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCC72D57D6B5005B0FD2 /* UICornerRadius.swift */; };
 		E3E8CCCA2D57D8D2005B0FD2 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCC92D57D8D2005B0FD2 /* URL+Extension.swift */; };
 		E3E8CCCC2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCCB2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift */; };
+		E3E8CCCF2D57DAF4005B0FD2 /* UserCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */; };
+		E3E8CCD42D57DBFE005B0FD2 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCD32D57DBFE005B0FD2 /* MainScreenView.swift */; };
+		E3E8CCD72D57DDB7005B0FD2 /* MainViewControllerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCD62D57DDB7005B0FD2 /* MainViewControllerTab.swift */; };
+		E3E8CCDB2D57E1AB005B0FD2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCDA2D57E1AB005B0FD2 /* ProfileView.swift */; };
+		E3E8CCDD2D57E1C1005B0FD2 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCDC2D57E1C1005B0FD2 /* TutorialView.swift */; };
+		E3E8CCE02D57E553005B0FD2 /* Goldman-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CCDE2D57E553005B0FD2 /* Goldman-Bold.ttf */; };
+		E3E8CCE12D57E553005B0FD2 /* Goldman-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CCDF2D57E553005B0FD2 /* Goldman-Regular.ttf */; };
+		E3E8CCE42D57E55E005B0FD2 /* Montserrat-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CCE22D57E55D005B0FD2 /* Montserrat-Italic-VariableFont_wght.ttf */; };
+		E3E8CCE52D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CCE32D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf */; };
+		E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */; };
+		E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E3E8CC8B2D57D358005B0FD2 /* 1win.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1win.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E8CC8E2D57D358005B0FD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3E8CC902D57D358005B0FD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E3E8CC922D57D358005B0FD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E3E8CC922D57D358005B0FD2 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		E3E8CC972D57D35A005B0FD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3E8CC9A2D57D35A005B0FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3E8CC9C2D57D35A005B0FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +56,17 @@
 		E3E8CCC72D57D6B5005B0FD2 /* UICornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICornerRadius.swift; sourceTree = "<group>"; };
 		E3E8CCC92D57D8D2005B0FD2 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		E3E8CCCB2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarHideOrNot+Extension.swift"; sourceTree = "<group>"; };
+		E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreate.swift; sourceTree = "<group>"; };
+		E3E8CCD32D57DBFE005B0FD2 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		E3E8CCD62D57DDB7005B0FD2 /* MainViewControllerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTab.swift; sourceTree = "<group>"; };
+		E3E8CCDA2D57E1AB005B0FD2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E3E8CCDC2D57E1C1005B0FD2 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		E3E8CCDE2D57E553005B0FD2 /* Goldman-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Goldman-Bold.ttf"; sourceTree = "<group>"; };
+		E3E8CCDF2D57E553005B0FD2 /* Goldman-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Goldman-Regular.ttf"; sourceTree = "<group>"; };
+		E3E8CCE22D57E55D005B0FD2 /* Montserrat-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		E3E8CCE32D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
+		E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +133,11 @@
 		E3E8CCA32D57D3C8005B0FD2 /* Scenas */ = {
 			isa = PBXGroup;
 			children = (
-				E3E8CC922D57D358005B0FD2 /* ViewController.swift */,
+				E3E8CCCD2D57D9F3005B0FD2 /* SignIn */,
+				E3E8CCD52D57DD90005B0FD2 /* MainViewControllerTab */,
+				E3E8CCD12D57DBC8005B0FD2 /* MainScreen */,
+				E3E8CCD82D57E14F005B0FD2 /* Tutorials */,
+				E3E8CCD92D57E16B005B0FD2 /* Profile */,
 			);
 			path = Scenas;
 			sourceTree = "<group>";
@@ -119,6 +145,8 @@
 		E3E8CCA42D57D3D4005B0FD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */,
+				E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +154,7 @@
 		E3E8CCA52D57D3E3005B0FD2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +162,10 @@
 		E3E8CCA62D57D3ED005B0FD2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E3E8CCDE2D57E553005B0FD2 /* Goldman-Bold.ttf */,
+				E3E8CCDF2D57E553005B0FD2 /* Goldman-Regular.ttf */,
+				E3E8CCE22D57E55D005B0FD2 /* Montserrat-Italic-VariableFont_wght.ttf */,
+				E3E8CCE32D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -164,6 +197,46 @@
 				E3E8CCAA2D57D4DC005B0FD2 /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		E3E8CCCD2D57D9F3005B0FD2 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E3E8CC922D57D358005B0FD2 /* SignInController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		E3E8CCD12D57DBC8005B0FD2 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E3E8CCD32D57DBFE005B0FD2 /* MainScreenView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		E3E8CCD52D57DD90005B0FD2 /* MainViewControllerTab */ = {
+			isa = PBXGroup;
+			children = (
+				E3E8CCD62D57DDB7005B0FD2 /* MainViewControllerTab.swift */,
+			);
+			path = MainViewControllerTab;
+			sourceTree = "<group>";
+		};
+		E3E8CCD82D57E14F005B0FD2 /* Tutorials */ = {
+			isa = PBXGroup;
+			children = (
+				E3E8CCDC2D57E1C1005B0FD2 /* TutorialView.swift */,
+			);
+			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		E3E8CCD92D57E16B005B0FD2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E3E8CCDA2D57E1AB005B0FD2 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +313,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E8CCE42D57E55E005B0FD2 /* Montserrat-Italic-VariableFont_wght.ttf in Resources */,
+				E3E8CCE12D57E553005B0FD2 /* Goldman-Regular.ttf in Resources */,
 				E3E8CC9B2D57D35A005B0FD2 /* LaunchScreen.storyboard in Resources */,
+				E3E8CCE02D57E553005B0FD2 /* Goldman-Bold.ttf in Resources */,
+				E3E8CCE52D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf in Resources */,
 				E3E8CC982D57D35A005B0FD2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,15 +331,22 @@
 			files = (
 				E3E8CCC42D57D62C005B0FD2 /* UIFont+Extension.swift in Sources */,
 				E3E8CCAB2D57D4DC005B0FD2 /* NetworkManager.swift in Sources */,
-				E3E8CC932D57D358005B0FD2 /* ViewController.swift in Sources */,
+				E3E8CCCF2D57DAF4005B0FD2 /* UserCreate.swift in Sources */,
+				E3E8CC932D57D358005B0FD2 /* SignInController.swift in Sources */,
 				E3E8CCCA2D57D8D2005B0FD2 /* URL+Extension.swift in Sources */,
 				E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */,
+				E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,
+				E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */,
+				E3E8CCDB2D57E1AB005B0FD2 /* ProfileView.swift in Sources */,
 				E3E8CCC62D57D689005B0FD2 /* Color.swift in Sources */,
 				E3E8CCC02D57D5A4005B0FD2 /* Constraint.swift in Sources */,
 				E3E8CCC82D57D6B5005B0FD2 /* UICornerRadius.swift in Sources */,
 				E3E8CC912D57D358005B0FD2 /* SceneDelegate.swift in Sources */,
+				E3E8CCDD2D57E1C1005B0FD2 /* TutorialView.swift in Sources */,
 				E3E8CCCC2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift in Sources */,
+				E3E8CCD42D57DBFE005B0FD2 /* MainScreenView.swift in Sources */,
+				E3E8CCD72D57DDB7005B0FD2 /* MainViewControllerTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
