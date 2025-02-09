@@ -18,7 +18,6 @@ class BenefitsView: UIView {
         return view
     }()
 
-
     lazy var accountImageLabel: CustomLabelView = {
         let view = CustomLabelView(
             leftImage: UIImage(named: "apple"),
