@@ -57,22 +57,22 @@ class SignInController: UIViewController {
 
     private lazy var signInWithAppleButton: UIButton = {
         let view = UIButton(frame: .zero)
-            view.setTitle("Sign in with apple", for: .normal)
+        view.setTitle("Sign in with apple", for: .normal)
         view.setTitleColor(UIColor.whiteColor, for: .normal)
         view.backgroundColor = UIColor.signInButtonBackgroundColor
-            view.makeRoundCorners(16)
+        view.makeRoundCorners(16)
         view.titleLabel?.font = UIFont.goldmanBold(size: 14)
-            let image = UIImage(named: "apple")?.withRenderingMode(.alwaysOriginal)
-            let resizedImage = UIGraphicsImageRenderer(size: CGSize(width: 24, height: 24)).image { _ in
-                image?.draw(in: CGRect(origin: .zero, size: CGSize(width: 24, height: 24)))
-            }
-            view.setImage(resizedImage, for: .normal)
-            view.imageView?.contentMode = .scaleAspectFit
-            view.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
-            view.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-            view.contentHorizontalAlignment = .center
-            view.addTarget(self, action: #selector(clickSignInWithAppleButton), for: .touchUpInside)
-            return view
+        let image = UIImage(named: "apple")?.withRenderingMode(.alwaysOriginal)
+        let resizedImage = UIGraphicsImageRenderer(size: CGSize(width: 24, height: 24)).image { _ in
+            image?.draw(in: CGRect(origin: .zero, size: CGSize(width: 24, height: 24)))
+        }
+        view.setImage(resizedImage, for: .normal)
+        view.imageView?.contentMode = .scaleAspectFit
+        view.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
+        view.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        view.contentHorizontalAlignment = .center
+        view.addTarget(self, action: #selector(clickSignInWithAppleButton), for: .touchUpInside)
+        return view
     }()
 
     private lazy var skipButton: UIButton = {
@@ -85,39 +85,47 @@ class SignInController: UIViewController {
         return view
     }()
 
-    private lazy var termsButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        let attributedTitle = NSAttributedString(
-            string: "Terms of Use",
-            attributes: [
-                .font: UIFont.montserratVariableFontWght(size: 12),
-                .foregroundColor: UIColor.whiteColor,
-                .underlineStyle: NSUnderlineStyle.single.rawValue
-            ]
-        )
-        view.setAttributedTitle(attributedTitle, for: .normal)
+    private lazy var termsPrivacyTextView: UITextView = {
+        let view = UITextView()
+        view.isEditable = false
+        view.isScrollEnabled = false
         view.backgroundColor = .clear
-        view.addTarget(self, action: #selector(clickTermsButton), for: .touchUpInside)
+        view.textAlignment = .center
+        view.delegate = self
+        view.textContainerInset = .zero
+        view.textContainer.lineFragmentPadding = 0
+        view.linkTextAttributes = [
+            .foregroundColor: UIColor.white.withAlphaComponent(0.8),
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+
+        let firstLine = "By clicking the “Sign in with Apple” button you agree to\n"
+        let secondLine = "Privacy Policy and Terms of Use"
+
+        let fullText = firstLine + secondLine
+        let privacyPolicyText = "Privacy Policy"
+        let termsOfUseText = "Terms of Use"
+
+        let attributedString = NSMutableAttributedString(string: fullText, attributes: [
+            .font: UIFont.montserratVariableFontWght(size: 12),
+            .foregroundColor: UIColor.white.withAlphaComponent(0.5)
+        ])
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        paragraphStyle.lineSpacing = 4
+
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, fullText.count))
+
+        let privacyPolicyRange = (fullText as NSString).range(of: privacyPolicyText)
+        let termsOfUseRange = (fullText as NSString).range(of: termsOfUseText)
+
+        attributedString.addAttribute(.link, value: "privacyPolicy", range: privacyPolicyRange)
+        attributedString.addAttribute(.link, value: "termsOfUse", range: termsOfUseRange)
+
+        view.attributedText = attributedString
         return view
     }()
-
-    private lazy var privacyPolicyButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        let attributedTitle = NSAttributedString(
-            string: "Privacy Policy",
-            attributes: [
-                .font: UIFont.montserratVariableFontWght(size: 12),
-                .foregroundColor: UIColor.whiteColor,
-                .underlineStyle: NSUnderlineStyle.single.rawValue
-            ]
-        )
-        view.setAttributedTitle(attributedTitle, for: .normal)
-        view.backgroundColor = .clear
-        view.addTarget(self, action: #selector(clickPrivacyPolicyButton), for: .touchUpInside)
-        return view
-    }()
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,13 +143,12 @@ class SignInController: UIViewController {
         view.addSubview(signInWithAppleButton)
         view.addSubview(benefitView)
         view.addSubview(skipButton)
-        view.addSubview(termsButton)
-        view.addSubview(privacyPolicyButton)
+        view.addSubview(termsPrivacyTextView)
     }
 
     private func setupConstraints() {
         mainImageConsole.snp.remakeConstraints { make in
-//            make.top.leading.trailing.equalToSuperview()
+            //            make.top.leading.trailing.equalToSuperview()
             make.top.equalTo(view.snp.top).offset(-20)
             make.leading.equalTo(view.snp.leading).offset(-20)
             make.trailing.equalTo(view.snp.trailing).offset(20)
@@ -185,26 +192,11 @@ class SignInController: UIViewController {
             make.height.equalTo(52 * Constraint.yCoeff)
         }
 
-        termsButton.snp.remakeConstraints { make in
-            make.bottom.equalTo(view.snp.bottom).offset(-32 * Constraint.yCoeff)
-            make.leading.equalTo(view.snp.leading).offset(20 * Constraint.xCoeff)
-            make.height.equalTo(15 * Constraint.yCoeff)
+        termsPrivacyTextView.snp.remakeConstraints { make in
+            make.top.equalTo(skipButton.snp.bottom).offset(16 * Constraint.yCoeff)
+            make.leading.trailing.equalToSuperview().inset(20 * Constraint.xCoeff)
+            make.height.equalTo(32 * Constraint.yCoeff)
         }
-
-        privacyPolicyButton.snp.remakeConstraints { make in
-            make.centerY.equalTo(termsButton.snp.centerY)
-            make.trailing.equalTo(view.snp.trailing).offset(-20 * Constraint.xCoeff)
-            make.height.equalTo(15 * Constraint.yCoeff)
-        }
-
-    }
-
-    @objc private func clickTermsButton() {
-
-    }
-
-    @objc private func clickPrivacyPolicyButton() {
-
     }
 
     @objc private func clickSkipButton() {
@@ -229,15 +221,15 @@ class SignInController: UIViewController {
         // Call createUser to simulate user creation
         createUser()
 
-//        let authorizationProvider = ASAuthorizationAppleIDProvider()
-//        let request = authorizationProvider.createRequest()
-//        request.requestedScopes = [.email, .fullName]
-//
-//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//        authorizationController.delegate = self
-//        authorizationController.performRequests()
-//        let mainView = MainDashboardScene()
-//        navigationController?.pushViewController(mainView, animated: true)
+        //        let authorizationProvider = ASAuthorizationAppleIDProvider()
+        //        let request = authorizationProvider.createRequest()
+        //        request.requestedScopes = [.email, .fullName]
+        //
+        //        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        //        authorizationController.delegate = self
+        //        authorizationController.performRequests()
+        //        let mainView = MainDashboardScene()
+        //        navigationController?.pushViewController(mainView, animated: true)
     }
 
     private func createUser() {
@@ -299,7 +291,7 @@ extension SignInController: ASAuthorizationControllerDelegate /*ASAuthorizationC
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
 
         UserDefaults.standard.setValue(credential.user, forKey: "AccountCredential")
-//        createUser()
+        //        createUser()
     }
 
     //    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
@@ -340,3 +332,23 @@ extension SignInController: ASAuthorizationControllerDelegate /*ASAuthorizationC
     }
 }
 
+extension SignInController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if URL.absoluteString == "privacyPolicy" {
+            openPrivacyPolicy()
+        } else if URL.absoluteString == "termsOfUse" {
+            openTermsOfUse()
+        }
+        return false
+    }
+
+    //TODO: add links 
+    private func openPrivacyPolicy() {
+        print("Privacy Policy Clicked")
+    }
+
+    private func openTermsOfUse() {
+        print("Terms of Use Clicked")
+    }
+
+}

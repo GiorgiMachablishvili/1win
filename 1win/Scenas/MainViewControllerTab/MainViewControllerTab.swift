@@ -71,7 +71,7 @@ class MainViewControllerTab: UITabBarController,  UITabBarControllerDelegate {
         )
 
         // Style the Tab Bar (optional)
-        tabBar.tintColor = .whiteColor
+        tabBar.tintColor = .signInButtonBackgroundColor
         tabBar.unselectedItemTintColor = .whiteColor.withAlphaComponent(0.4)
         tabBar.barTintColor = UIColor.titlesBlack
         tabBar.isTranslucent = false

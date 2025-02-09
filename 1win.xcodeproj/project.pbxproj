@@ -38,6 +38,8 @@
 		E3E8CCE52D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3E8CCE32D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf */; };
 		E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */; };
 		E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */; };
+		E3E8CCEB2D58DFC1005B0FD2 /* TournamentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCEA2D58DFC1005B0FD2 /* TournamentCell.swift */; };
+		E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCEC2D590BE8005B0FD2 /* TrainingMaterialsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		E3E8CCE32D57E55E005B0FD2 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
+		E3E8CCEA2D58DFC1005B0FD2 /* TournamentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCell.swift; sourceTree = "<group>"; };
+		E3E8CCEC2D590BE8005B0FD2 /* TrainingMaterialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMaterialsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				E3E8CCD32D57DBFE005B0FD2 /* MainScreenView.swift */,
+				E3E8CCEA2D58DFC1005B0FD2 /* TournamentCell.swift */,
+				E3E8CCEC2D590BE8005B0FD2 /* TrainingMaterialsView.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -332,10 +338,12 @@
 				E3E8CCC42D57D62C005B0FD2 /* UIFont+Extension.swift in Sources */,
 				E3E8CCAB2D57D4DC005B0FD2 /* NetworkManager.swift in Sources */,
 				E3E8CCCF2D57DAF4005B0FD2 /* UserCreate.swift in Sources */,
+				E3E8CCEB2D58DFC1005B0FD2 /* TournamentCell.swift in Sources */,
 				E3E8CC932D57D358005B0FD2 /* SignInController.swift in Sources */,
 				E3E8CCCA2D57D8D2005B0FD2 /* URL+Extension.swift in Sources */,
 				E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */,
 				E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */,
+				E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,
 				E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */,
 				E3E8CCDB2D57E1AB005B0FD2 /* ProfileView.swift in Sources */,
