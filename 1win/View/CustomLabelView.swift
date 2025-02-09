@@ -11,31 +11,32 @@ import SnapKit
 class CustomLabelView: UIView {
 
     private let leftImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 20
-        imageView.clipsToBounds = true
-        return imageView
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        return view
     }()
 
     let middleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
-        label.textAlignment = .left
-        return label
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 10)
+        view.textAlignment = .left
+        return view
     }()
 
     private let rightImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+
+        return view
     }()
 
     private let rightLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textAlignment = .right
-        return label
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 16)
+        view.textAlignment = .right
+        return view
     }()
 
     private let containerView = UIStackView()
@@ -66,19 +67,37 @@ class CustomLabelView: UIView {
         containerView.axis = .horizontal
         containerView.spacing = 5
         containerView.alignment = .center
+        containerView.distribution = .fill
 
         containerView.addArrangedSubview(leftImageView)
         containerView.addArrangedSubview(middleLabel)
+
+        let rightContainer = UIView()
+        rightContainer.addSubview(rightImageView)
+        rightContainer.addSubview(rightLabel)
+
+        if rightImageView.image != nil {
+            rightImageView.snp.makeConstraints { make in
+                make.width.height.equalTo(8)
+                make.trailing.equalToSuperview().inset(16) 
+                make.centerY.equalToSuperview()
+            }
+        }
+
+        if rightLabel.text != nil {
+            rightLabel.snp.makeConstraints { make in
+                make.trailing.equalToSuperview().inset(16)
+                make.centerY.equalToSuperview()
+            }
+        }
+
+        containerView.addArrangedSubview(rightContainer)
 
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
         leftImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(40)
-        }
-
-        rightImageView.snp.makeConstraints { make in
             make.width.height.equalTo(40)
         }
     }
