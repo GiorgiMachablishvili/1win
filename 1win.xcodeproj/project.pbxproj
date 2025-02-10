@@ -43,6 +43,12 @@
 		E3E8CCEF2D592D29005B0FD2 /* ChangeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCEE2D592D29005B0FD2 /* ChangeImageCell.swift */; };
 		E3E8CCF12D59314D005B0FD2 /* LinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCF02D59314D005B0FD2 /* LinksCell.swift */; };
 		E3E8CCF32D594540005B0FD2 /* CreateAndDeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCF22D594540005B0FD2 /* CreateAndDeleteCell.swift */; };
+		E3E8CCF62D5A2BE9005B0FD2 /* TournamentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCF52D5A2BE9005B0FD2 /* TournamentDetailsView.swift */; };
+		E3E8CCF82D5A3CDD005B0FD2 /* TournamentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCF72D5A3CDD005B0FD2 /* TournamentInfo.swift */; };
+		E3E8CCFA2D5A546F005B0FD2 /* TournamentDetailsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCF92D5A546F005B0FD2 /* TournamentDetailsInfo.swift */; };
+		E3E8CCFC2D5A738D005B0FD2 /* TournamentDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCFB2D5A738D005B0FD2 /* TournamentDescriptionCell.swift */; };
+		E3E8CCFE2D5A7749005B0FD2 /* TournamentParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCFD2D5A7749005B0FD2 /* TournamentParticipantsCell.swift */; };
+		E3E8CD002D5A7973005B0FD2 /* AttributedStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CCFF2D5A7973005B0FD2 /* AttributedStringView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +83,12 @@
 		E3E8CCEE2D592D29005B0FD2 /* ChangeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeImageCell.swift; sourceTree = "<group>"; };
 		E3E8CCF02D59314D005B0FD2 /* LinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksCell.swift; sourceTree = "<group>"; };
 		E3E8CCF22D594540005B0FD2 /* CreateAndDeleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndDeleteCell.swift; sourceTree = "<group>"; };
+		E3E8CCF52D5A2BE9005B0FD2 /* TournamentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentDetailsView.swift; sourceTree = "<group>"; };
+		E3E8CCF72D5A3CDD005B0FD2 /* TournamentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentInfo.swift; sourceTree = "<group>"; };
+		E3E8CCF92D5A546F005B0FD2 /* TournamentDetailsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentDetailsInfo.swift; sourceTree = "<group>"; };
+		E3E8CCFB2D5A738D005B0FD2 /* TournamentDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentDescriptionCell.swift; sourceTree = "<group>"; };
+		E3E8CCFD2D5A7749005B0FD2 /* TournamentParticipantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentParticipantsCell.swift; sourceTree = "<group>"; };
+		E3E8CCFF2D5A7973005B0FD2 /* AttributedStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +169,7 @@
 			children = (
 				E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */,
 				E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */,
+				E3E8CCFF2D5A7973005B0FD2 /* AttributedStringView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +177,7 @@
 		E3E8CCA52D57D3E3005B0FD2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3E8CCF92D5A546F005B0FD2 /* TournamentDetailsInfo.swift */,
 				E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */,
 			);
 			path = Models;
@@ -223,6 +237,7 @@
 				E3E8CCD32D57DBFE005B0FD2 /* MainScreenView.swift */,
 				E3E8CCEA2D58DFC1005B0FD2 /* TournamentCell.swift */,
 				E3E8CCEC2D590BE8005B0FD2 /* TrainingMaterialsView.swift */,
+				E3E8CCF42D5A1DD9005B0FD2 /* TournamentDetails */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -252,6 +267,17 @@
 				E3E8CCF22D594540005B0FD2 /* CreateAndDeleteCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		E3E8CCF42D5A1DD9005B0FD2 /* TournamentDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E3E8CCF52D5A2BE9005B0FD2 /* TournamentDetailsView.swift */,
+				E3E8CCFB2D5A738D005B0FD2 /* TournamentDescriptionCell.swift */,
+				E3E8CCF72D5A3CDD005B0FD2 /* TournamentInfo.swift */,
+				E3E8CCFD2D5A7749005B0FD2 /* TournamentParticipantsCell.swift */,
+			);
+			path = TournamentDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,15 +370,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E8CCFE2D5A7749005B0FD2 /* TournamentParticipantsCell.swift in Sources */,
 				E3E8CCC42D57D62C005B0FD2 /* UIFont+Extension.swift in Sources */,
 				E3E8CCAB2D57D4DC005B0FD2 /* NetworkManager.swift in Sources */,
 				E3E8CCCF2D57DAF4005B0FD2 /* UserCreate.swift in Sources */,
 				E3E8CCEF2D592D29005B0FD2 /* ChangeImageCell.swift in Sources */,
 				E3E8CCEB2D58DFC1005B0FD2 /* TournamentCell.swift in Sources */,
+				E3E8CCF62D5A2BE9005B0FD2 /* TournamentDetailsView.swift in Sources */,
 				E3E8CC932D57D358005B0FD2 /* SignInController.swift in Sources */,
 				E3E8CCCA2D57D8D2005B0FD2 /* URL+Extension.swift in Sources */,
+				E3E8CD002D5A7973005B0FD2 /* AttributedStringView.swift in Sources */,
+				E3E8CCFC2D5A738D005B0FD2 /* TournamentDescriptionCell.swift in Sources */,
 				E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */,
 				E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */,
+				E3E8CCF82D5A3CDD005B0FD2 /* TournamentInfo.swift in Sources */,
 				E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,
 				E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */,
@@ -363,6 +394,7 @@
 				E3E8CC912D57D358005B0FD2 /* SceneDelegate.swift in Sources */,
 				E3E8CCDD2D57E1C1005B0FD2 /* TutorialView.swift in Sources */,
 				E3E8CCCC2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift in Sources */,
+				E3E8CCFA2D5A546F005B0FD2 /* TournamentDetailsInfo.swift in Sources */,
 				E3E8CCD42D57DBFE005B0FD2 /* MainScreenView.swift in Sources */,
 				E3E8CCD72D57DDB7005B0FD2 /* MainViewControllerTab.swift in Sources */,
 				E3E8CCF32D594540005B0FD2 /* CreateAndDeleteCell.swift in Sources */,

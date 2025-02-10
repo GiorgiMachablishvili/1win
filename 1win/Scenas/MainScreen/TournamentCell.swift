@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class TournamentCell: UICollectionViewCell {
+
+    var prizePriceString = "100.000"
+
     private lazy var tournamentImage: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.image = UIImage(named: "tournamentImage")
@@ -78,6 +82,29 @@ class TournamentCell: UICollectionViewCell {
         return view
     }()
 
+    private lazy var prizePriceView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(hexString: "#267DFF").withAlphaComponent(0.1)
+        view.makeRoundCorners(12)
+        return view
+    }()
+
+    private lazy var prizePriceImage: UIImageView = {
+        let view = UIImageView(frame: .zero)
+        view.image = UIImage(named: "prize")
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+
+    private lazy var prizePriceLabel: UILabel = {
+        let view = UILabel(frame: .zero)
+        view.text = "100 000"
+        view.textColor = UIColor(hexString: "#267DFF")
+        view.font = UIFont.goldmanBold(size: 10)
+        view.textAlignment = .center
+        return view
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
@@ -85,7 +112,7 @@ class TournamentCell: UICollectionViewCell {
         setupConstraints()
 
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -99,6 +126,9 @@ class TournamentCell: UICollectionViewCell {
         tournamentInfoBackground.addSubview(tournamentsEndDate)
         tournamentInfoBackground.addSubview(liveButton)
         tournamentInfoBackground.addSubview(goButton)
+        tournamentInfoBackground.addSubview(prizePriceView)
+        prizePriceView.addSubview(prizePriceImage)
+        prizePriceView.addSubview(prizePriceLabel)
     }
 
     private func setupConstraints() {
@@ -151,9 +181,36 @@ class TournamentCell: UICollectionViewCell {
             make.height.equalTo(28 * Constraint.yCoeff)
             make.width.equalTo(44 * Constraint.yCoeff)
         }
+
+        prizePriceView.snp.remakeConstraints { make in
+            make.centerY.equalTo(goButton.snp.centerY)
+            make.leading.equalTo(goButton.snp.trailing).offset(4 * Constraint.xCoeff)
+            make.height.equalTo(28)
+            make.width.equalTo(96)
+        }
+
+        prizePriceImage.snp.remakeConstraints { make in
+            make.centerY.equalTo(prizePriceView.snp.centerY)
+            make.leading.equalTo(prizePriceView.snp.leading).offset(12 * Constraint.xCoeff)
+            make.height.width.equalTo(16 * Constraint.xCoeff)
+        }
+
+        prizePriceLabel.snp.remakeConstraints { make in
+            make.centerY.equalTo(prizePriceView.snp.centerY)
+            make.leading.equalTo(prizePriceImage.snp.trailing).offset(4 * Constraint.xCoeff)
+            make.height.equalTo(12 * Constraint.xCoeff)
+        }
     }
 
     @objc private func clickLiveButton() {
 
+    }
+
+    func configure(with data: TournamentDetailsInfo) {
+        tournamentsTitle.text = data.title
+        tournamentsStartDate.text = data.startEvent
+        tournamentsEndDate.text = data.endEvent
+        prizePriceLabel.text = data.prizePrice
+        tournamentImage.image = UIImage(named: data.image)
     }
 }

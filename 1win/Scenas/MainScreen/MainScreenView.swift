@@ -10,6 +10,11 @@ import SnapKit
 
 class MainScreenView: UIViewController {
 
+    private let tournamentsData: [TournamentDetailsInfo] = [
+        TournamentDetailsInfo(image: "tournamentImage", title: "BLAST Bounty Spring 2025", startEvent: "26.01.2025", endEvent: "14.02.2025", prizePrice: "$100,000", tournamentVenue: "USA"),
+        TournamentDetailsInfo(image: "tournamentImage", title: "DreamHack Masters 2025", startEvent: "10.03.2025", endEvent: "22.03.2025", prizePrice: "$150,000", tournamentVenue: "Germany")
+    ]
+
     private lazy var upcomingTournamentsTitle: UILabel = {
         let view = UILabel(frame: .zero)
         view.text = "Upcoming tournaments "
@@ -52,11 +57,6 @@ class MainScreenView: UIViewController {
         super.viewDidLoad()
         setup()
         setupConstraints()
-        setupHierarchy()
-    }
-
-    func setupHierarchy() {
-        collectionView.register(TournamentCell.self, forCellWithReuseIdentifier: String(describing: TournamentCell.self))
     }
 
     private func setup() {
@@ -100,13 +100,21 @@ class MainScreenView: UIViewController {
 
 extension MainScreenView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return tournamentsData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TournamentCell.self),for: indexPath) as? TournamentCell else { return UICollectionViewCell()
         }
-
+        let tournament = tournamentsData[indexPath.item]
+        cell.configure(with: tournament)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedTournament = tournamentsData[indexPath.item]
+        let detailsView = TournamentDetailsView()
+//        detailsView.configure(with: selectedTournament)
+        navigationController?.pushViewController(detailsView, animated: true)
     }
 }
