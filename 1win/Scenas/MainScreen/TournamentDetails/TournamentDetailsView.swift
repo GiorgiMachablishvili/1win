@@ -20,6 +20,17 @@ class TournamentDetailsView: UIViewController {
         return view
     }()
 
+    private lazy var selectTheCommand: SelectTheCommand = {
+        let view = SelectTheCommand()
+        view.isHidden = true
+        view.makeRoundCorners(32)
+        view.backgroundColor = UIColor.viewBackgroundColor
+        view.didPressCloseButton = { [weak self] in
+            self?.hideSelectTheCommandView()
+        }
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#1E1D23")
@@ -38,11 +49,17 @@ class TournamentDetailsView: UIViewController {
 
     private func setup() {
         view.addSubview(collectionView)
+        view.addSubview(selectTheCommand)
     }
 
     private func setupConstraints() {
         collectionView.snp.remakeConstraints { make in
             make.top.equalTo(view.snp.top).offset(-55)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+
+        selectTheCommand.snp.remakeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(105 * Constraint.yCoeff)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -124,7 +141,7 @@ class TournamentDetailsView: UIViewController {
         section.contentInsets = .init(
             top: 16 * Constraint.yCoeff,
             leading: 20 * Constraint.xCoeff,
-            bottom: 100 * Constraint.yCoeff,
+            bottom: 50 * Constraint.yCoeff,
             trailing: 20 * Constraint.xCoeff
         )
         return section
@@ -147,6 +164,17 @@ class TournamentDetailsView: UIViewController {
         section.orthogonalScrollingBehavior = .groupPagingCentered
 
         return section
+    }
+
+    private func unHideSelectTheCommandView () {
+        let viewVC = MainScreenView()
+        selectTheCommand.isHidden = false
+        viewVC.hidesBottomBarWhenPushed = true
+    }
+
+    private func hideSelectTheCommandView() {
+        selectTheCommand.isHidden = true
+        self.hidesBottomBarWhenPushed = false
     }
 
 }
@@ -193,6 +221,10 @@ extension TournamentDetailsView: UICollectionViewDelegate, UICollectionViewDataS
                 withReuseIdentifier: String(describing: TournamentParticipantsCell.self),
                 for: indexPath) as? TournamentParticipantsCell else {
                 return UICollectionViewCell()
+            }
+            cell.didPressVoteButton = { [weak self] in
+                guard let self = self else { return }
+                self.unHideSelectTheCommandView()
             }
             return cell
         default:

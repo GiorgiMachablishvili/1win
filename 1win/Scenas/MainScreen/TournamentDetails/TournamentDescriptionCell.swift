@@ -22,7 +22,7 @@ class TournamentDescriptionCell: UICollectionViewCell {
     private lazy var tournamentDetailsImage: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.image = UIImage(named: "tournamentImage")
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleToFill
         view.makeRoundCorners(16)
         return view
     }()

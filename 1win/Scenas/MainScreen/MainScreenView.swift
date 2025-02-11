@@ -50,6 +50,9 @@ class MainScreenView: UIViewController {
 
     private lazy var trainingMaterials: TrainingMaterialsView = {
         let view = TrainingMaterialsView()
+        view.didPressCSButton = { [weak self] in
+            self?.moveToGameView()
+        }
         return view
     }()
 
@@ -91,6 +94,11 @@ class MainScreenView: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(412 * Constraint.yCoeff)
         }
+    }
+
+    private func moveToGameView() {
+        let csGameVC = CSGameController()
+        navigationController?.pushViewController(csGameVC, animated: true)
     }
 
     @objc private func clickSeeAllButton() {

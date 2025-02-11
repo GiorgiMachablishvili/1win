@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class TournamentParticipantsCell: UICollectionViewCell {
+
+    var didPressVoteButton: (() -> Void)?
+
     private lazy var participantsTitle: UILabel = {
         let view = UILabel(frame: .zero)
         view.text = "Tournament participants "
@@ -18,24 +21,18 @@ class TournamentParticipantsCell: UICollectionViewCell {
         return view
     }()
 
-    private lazy var naviRating = AttributedStringView(
-           leftImage: UIImage(named: "navi"),
-           text: "Navi",
-           text2: "25%"
-       )
+    private let teams: [TournamentTeam] = [
+            TournamentTeam(imageName: "navi", title: "Navi"),
+            TournamentTeam(imageName: "spirit", title: "Spirit"),
+            TournamentTeam(imageName: "G2", title: "G2"),
+            TournamentTeam(imageName: "vitality", title: "Vitality"),
+            TournamentTeam(imageName: "betBoom", title: "BetBoom"),
+            TournamentTeam(imageName: "ef", title: "EF"),
+            TournamentTeam(imageName: "heroic", title: "Heroic"),
+            TournamentTeam(imageName: "pianN", title: "PianN")
+        ]
 
-    private lazy var spiritRating = AttributedStringView(
-           leftImage: UIImage(named: "spirit"),
-           text: "Spirit",
-           text2: "20%"
-       )
-
-    private lazy var g2Rating = AttributedStringView(
-           leftImage: UIImage(named: "G2"),
-           text: "G@",
-           text2: "15%"
-       )
-
+    private var teamViews: [AttributedStringView] = []
 
 
     private lazy var voteButton: UIButton = {
@@ -61,9 +58,11 @@ class TournamentParticipantsCell: UICollectionViewCell {
 
     private func setup() {
         addSubview(participantsTitle)
-        addSubview(naviRating)
-        addSubview(spiritRating)
-        addSubview(g2Rating)
+        for team in teams {
+            let teamView = AttributedStringView(leftImage: UIImage(named: team.imageName), text: team.title, text2: "\(0/*Int.random(in: 10...50)*/)%")
+            teamViews.append(teamView)
+            addSubview(teamView)
+        }
         addSubview(voteButton)
     }
 
@@ -74,32 +73,25 @@ class TournamentParticipantsCell: UICollectionViewCell {
             make.height.equalTo(19)
         }
 
-        naviRating.snp.remakeConstraints { make in
-            make.top.equalTo(participantsTitle.snp.bottom).offset(8 * Constraint.yCoeff)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(40)
-        }
-
-        spiritRating.snp.remakeConstraints { make in
-            make.top.equalTo(naviRating.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(40)
-        }
-
-        g2Rating.snp.remakeConstraints { make in
-            make.top.equalTo(spiritRating.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(40)
+        var previousView: UIView = participantsTitle
+        for teamView in teamViews {
+            teamView.snp.makeConstraints { make in
+                make.top.equalTo(previousView.snp.bottom).offset(8 * Constraint.yCoeff)
+                make.leading.trailing.equalToSuperview()
+                make.height.equalTo(40)
+            }
+            previousView = teamView
         }
 
         voteButton.snp.remakeConstraints { make in
-            make.bottom.equalTo(snp.bottom).offset(100 * Constraint.yCoeff)
+//            make.bottom.equalTo(snp.bottom)
+            make.top.equalTo(previousView.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(20 * Constraint.xCoeff)
             make.height.equalTo(60 * Constraint.yCoeff)
         }
     }
 
     @objc private func clickVoteButton() {
-
+        didPressVoteButton?()
     }
 }

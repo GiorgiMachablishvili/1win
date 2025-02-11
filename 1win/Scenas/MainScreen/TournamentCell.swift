@@ -11,8 +11,6 @@ import Kingfisher
 
 class TournamentCell: UICollectionViewCell {
 
-    var prizePriceString = "100.000"
-
     private lazy var tournamentImage: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.image = UIImage(named: "tournamentImage")

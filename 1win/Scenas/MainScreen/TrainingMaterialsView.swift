@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class TrainingMaterialsView: UIView {
+
+    var didPressCSButton: (() -> Void)?
+
     private lazy var trainingMaterialsTitle: UILabel = {
         let view = UILabel(frame: .zero)
         view.text = "Training materials"
@@ -110,7 +113,7 @@ class TrainingMaterialsView: UIView {
     }
 
     @objc private func clickCsButton() {
-
+        didPressCSButton?()
     }
 
     @objc private func clickDota2Button() {

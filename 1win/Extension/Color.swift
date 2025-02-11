@@ -14,6 +14,8 @@ extension UIColor {
 
     static let signInButtonBackgroundColor = UIColor(hexString: "#0568FB")
 
+    static let viewBackgroundColor = UIColor(hexString: "#1E1D23")
+
 
 
 
