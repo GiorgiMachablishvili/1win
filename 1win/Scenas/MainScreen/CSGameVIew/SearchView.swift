@@ -1,5 +1,5 @@
 //
-//  SearchCell.swift
+//  SearchView.swift
 //  1win
 //
 //  Created by Gio's Mac on 11.02.25.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchCell: UICollectionViewCell {
+class SearchView: UIView {
     private lazy var backButton: UIButton = {
         let view = UIButton(type: .system)
 //        view.setImage(UIImage(named: "backButton"), for: .normal)
@@ -38,10 +38,9 @@ class SearchCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .clear
+        backgroundColor = UIColor(hexString: "#1E1D23")
         setup()
         setupConstraints()
-
     }
 
     required init?(coder: NSCoder) {
@@ -55,7 +54,7 @@ class SearchCell: UICollectionViewCell {
 
     private func setupConstraints() {
         backButton.snp.remakeConstraints { make in
-            make.bottom.equalTo(snp.bottom).offset(-20 * Constraint.yCoeff)
+            make.bottom.equalTo(snp.bottom)
             make.leading.equalTo(snp.leading).offset(20 * Constraint.xCoeff)
             make.height.width.equalTo(44 * Constraint.yCoeff)
         }
