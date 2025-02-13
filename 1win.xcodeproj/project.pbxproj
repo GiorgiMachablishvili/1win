@@ -57,6 +57,10 @@
 		E3E8CD0F2D5BE6D5005B0FD2 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD0E2D5BE6D5005B0FD2 /* TrainingCell.swift */; };
 		E3E8CD112D5C7125005B0FD2 /* AllTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD102D5C7125005B0FD2 /* AllTrainingCell.swift */; };
 		E3E8CD132D5C96AA005B0FD2 /* AllTrainingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD122D5C96AA005B0FD2 /* AllTrainingHeaderView.swift */; };
+		E3E8CD152D5D105A005B0FD2 /* CurrentTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD142D5D105A005B0FD2 /* CurrentTrainingController.swift */; };
+		E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */; };
+		E3E8CD192D5D2AD1005B0FD2 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */; };
+		E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +109,10 @@
 		E3E8CD0E2D5BE6D5005B0FD2 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		E3E8CD102D5C7125005B0FD2 /* AllTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrainingCell.swift; sourceTree = "<group>"; };
 		E3E8CD122D5C96AA005B0FD2 /* AllTrainingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrainingHeaderView.swift; sourceTree = "<group>"; };
+		E3E8CD142D5D105A005B0FD2 /* CurrentTrainingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingController.swift; sourceTree = "<group>"; };
+		E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingCell.swift; sourceTree = "<group>"; };
+		E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
+		E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 				E3E8CCA72D57D3F3005B0FD2 /* Extension */,
 				E3E8CCA62D57D3ED005B0FD2 /* Fonts */,
 				E3E8CC972D57D35A005B0FD2 /* Assets.xcassets */,
+				E3E8CD1A2D5E0368005B0FD2 /* New Group */,
 				E3E8CC992D57D35A005B0FD2 /* LaunchScreen.storyboard */,
 				E3E8CC9C2D57D35A005B0FD2 /* Info.plist */,
 			);
@@ -193,9 +202,11 @@
 		E3E8CCA52D57D3E3005B0FD2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */,
 				E3E8CCF92D5A546F005B0FD2 /* TournamentDetailsInfo.swift */,
 				E3E8CD042D5B5069005B0FD2 /* TournamentTeam.swift */,
-				E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */,
+				E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */,
+				E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +318,8 @@
 				E3E8CD0D2D5BE5A6005B0FD2 /* PopularTrainingCell */,
 				E3E8CD102D5C7125005B0FD2 /* AllTrainingCell.swift */,
 				E3E8CD122D5C96AA005B0FD2 /* AllTrainingHeaderView.swift */,
+				E3E8CD142D5D105A005B0FD2 /* CurrentTrainingController.swift */,
+				E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */,
 			);
 			path = CSGameVIew;
 			sourceTree = "<group>";
@@ -318,6 +331,13 @@
 				E3E8CD0E2D5BE6D5005B0FD2 /* TrainingCell.swift */,
 			);
 			path = PopularTrainingCell;
+			sourceTree = "<group>";
+		};
+		E3E8CD1A2D5E0368005B0FD2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,12 +448,14 @@
 				E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */,
 				E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */,
 				E3E8CCF82D5A3CDD005B0FD2 /* TournamentInfo.swift in Sources */,
+				E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */,
 				E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,
 				E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */,
 				E3E8CCDB2D57E1AB005B0FD2 /* ProfileView.swift in Sources */,
 				E3E8CCC62D57D689005B0FD2 /* Color.swift in Sources */,
 				E3E8CCC02D57D5A4005B0FD2 /* Constraint.swift in Sources */,
+				E3E8CD192D5D2AD1005B0FD2 /* TrainingModel.swift in Sources */,
 				E3E8CCC82D57D6B5005B0FD2 /* UICornerRadius.swift in Sources */,
 				E3E8CC912D57D358005B0FD2 /* SceneDelegate.swift in Sources */,
 				E3E8CCDD2D57E1C1005B0FD2 /* TutorialView.swift in Sources */,
@@ -443,9 +465,11 @@
 				E3E8CCD42D57DBFE005B0FD2 /* MainScreenView.swift in Sources */,
 				E3E8CD0C2D5BD289005B0FD2 /* PopularTrainingCell.swift in Sources */,
 				E3E8CCD72D57DDB7005B0FD2 /* MainViewControllerTab.swift in Sources */,
+				E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */,
 				E3E8CD052D5B5069005B0FD2 /* TournamentTeam.swift in Sources */,
 				E3E8CD112D5C7125005B0FD2 /* AllTrainingCell.swift in Sources */,
 				E3E8CCF32D594540005B0FD2 /* CreateAndDeleteCell.swift in Sources */,
+				E3E8CD152D5D105A005B0FD2 /* CurrentTrainingController.swift in Sources */,
 				E3E8CCF12D59314D005B0FD2 /* LinksCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

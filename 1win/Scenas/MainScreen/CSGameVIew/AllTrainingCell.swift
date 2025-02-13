@@ -11,7 +11,7 @@ import SnapKit
 class AllTrainingCell: UICollectionViewCell {
     private lazy var trainingImage: UIImageView = {
         let view = UIImageView(frame: .zero)
-        view.image = UIImage(named: "csImage")
+        view.image = UIImage(named: "csGoImage")
         view.contentMode = .scaleToFill
         view.makeRoundCorners(16)
         return view
@@ -71,5 +71,11 @@ class AllTrainingCell: UICollectionViewCell {
             make.leading.equalTo(trainingImage.snp.trailing).offset(12 * Constraint.xCoeff)
             make.width.equalTo(246 * Constraint.xCoeff)
         }
+    }
+
+    func configure(with data: TrainingModel) {
+        trainingImage.image = UIImage(named: data.image)
+        trainingTitle.text = data.title
+        trainingInfoLabel.text = data.description
     }
 }

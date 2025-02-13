@@ -18,7 +18,6 @@ class TournamentDescriptionCell: UICollectionViewCell {
         return view
     }()
 
-
     private lazy var tournamentDetailsImage: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.image = UIImage(named: "tournamentImage")
