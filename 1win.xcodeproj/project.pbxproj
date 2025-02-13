@@ -61,6 +61,8 @@
 		E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */; };
 		E3E8CD192D5D2AD1005B0FD2 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */; };
 		E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */; };
+		E3E8CD222D5E1E7E005B0FD2 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */; };
+		E3E8CD242D5E6B83005B0FD2 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,8 @@
 		E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingCell.swift; sourceTree = "<group>"; };
 		E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingModel.swift; sourceTree = "<group>"; };
+		E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 				E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */,
 				E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */,
 				E3E8CCFF2D5A7973005B0FD2 /* AttributedStringView.swift */,
+				E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				E3E8CD042D5B5069005B0FD2 /* TournamentTeam.swift */,
 				E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */,
 				E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */,
+				E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				E3E8CCEB2D58DFC1005B0FD2 /* TournamentCell.swift in Sources */,
 				E3E8CCF62D5A2BE9005B0FD2 /* TournamentDetailsView.swift in Sources */,
 				E3E8CD032D5B2F05005B0FD2 /* SelectTheCommand.swift in Sources */,
+				E3E8CD222D5E1E7E005B0FD2 /* QuizView.swift in Sources */,
 				E3E8CC932D57D358005B0FD2 /* SignInController.swift in Sources */,
 				E3E8CCCA2D57D8D2005B0FD2 /* URL+Extension.swift in Sources */,
 				E3E8CD002D5A7973005B0FD2 /* AttributedStringView.swift in Sources */,
@@ -449,6 +456,7 @@
 				E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */,
 				E3E8CCF82D5A3CDD005B0FD2 /* TournamentInfo.swift in Sources */,
 				E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */,
+				E3E8CD242D5E6B83005B0FD2 /* QuizQuestion.swift in Sources */,
 				E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,
 				E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */,

@@ -35,6 +35,17 @@ class CurrentTrainingController: UIViewController {
         return view
     }()
 
+    private lazy var quizView: QuizView = {
+        let view = QuizView()
+        view.makeRoundCorners(32)
+        view.isHidden = true
+
+        view.didPressCloseButton = { [weak self] in
+            self?.closeView()
+        }
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .viewBackgroundColor
@@ -44,6 +55,7 @@ class CurrentTrainingController: UIViewController {
 
     private func setup() {
         view.addSubview(collectionView)
+        view.addSubview(quizView)
     }
 
     private func setupConstraints() {
@@ -51,10 +63,23 @@ class CurrentTrainingController: UIViewController {
 //            make.top.equalTo(trainingImage.snp.bottom).offset(32 * Constraint.yCoeff)
             make.top.leading.trailing.bottom.equalToSuperview()
         }
+
+        quizView.snp.remakeConstraints { make in
+            make.leading.bottom.trailing.equalToSuperview()
+            make.height.equalTo(477 * Constraint.yCoeff)
+        }
+    }
+
+    private func unHideQuizView() {
+        quizView.isHidden = false
     }
 
     private func pressBackButton() {
         navigationController?.popViewController(animated: true)
+    }
+
+    private func closeView() {
+        quizView.isHidden = true
     }
 }
 
@@ -69,6 +94,10 @@ extension CurrentTrainingController: UICollectionViewDataSource, UICollectionVie
         }
         cell.didPressBackButton = { [weak self] in
             self?.pressBackButton()
+        }
+
+        cell.didPressGoToTestingButton = { [weak self] in
+            self?.unHideQuizView()
         }
         cell.configure(with: training)
         return cell

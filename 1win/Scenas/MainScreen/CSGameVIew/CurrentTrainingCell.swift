@@ -11,6 +11,7 @@ import SnapKit
 class CurrentTrainingCell: UICollectionViewCell {
 
     var didPressBackButton: (() -> Void)?
+    var didPressGoToTestingButton: (() -> Void)?
 
     private lazy var trainingImage: UIImageView = {
         let view = UIImageView(frame: .zero)
@@ -100,7 +101,6 @@ class CurrentTrainingCell: UICollectionViewCell {
         backgroundColor = .viewBackgroundColor
         setup()
         setupConstraints()
-
     }
 
     required init?(coder: NSCoder) {
@@ -177,7 +177,7 @@ class CurrentTrainingCell: UICollectionViewCell {
     }
 
     @objc private func clickGoToTestingButton() {
-        
+        didPressGoToTestingButton?()
     }
 
     func configure(with data: TrainingModel) {
