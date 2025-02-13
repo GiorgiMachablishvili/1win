@@ -34,7 +34,6 @@ class TournamentParticipantsCell: UICollectionViewCell {
 
     private var teamViews: [AttributedStringView] = []
 
-
     private lazy var voteButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setTitle("VOTE", for: .normal)

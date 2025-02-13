@@ -9,12 +9,13 @@ import UIKit
 import SnapKit
 
 class SearchView: UIView {
+
+    var didPressBackButton: (() -> Void)?
+
     private lazy var backButton: UIButton = {
-        let view = UIButton(type: .system)
-//        view.setImage(UIImage(named: "backButton"), for: .normal)
-        view.setImage(UIImage(systemName: "arrow.backward.circle"), for: .normal)
-        view.contentMode = .scaleToFill
-        view.tintColor = UIColor.whiteColor.withAlphaComponent(0.1)
+        let view = UIButton(frame: .zero)
+        view.setImage(UIImage(named: "backButton"), for: .normal)
+        view.contentMode = .scaleAspectFit
         view.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
         return view
     }()
@@ -68,6 +69,6 @@ class SearchView: UIView {
     }
 
     @objc private func backButtonPressed() {
-
+        didPressBackButton?()
     }
 }
