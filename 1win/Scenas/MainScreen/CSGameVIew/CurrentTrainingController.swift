@@ -12,14 +12,14 @@ class CurrentTrainingController: UIViewController {
 
     private let training: TrainingModel
 
-        init(training: TrainingModel) {
-            self.training = training
-            super.init(nibName: nil, bundle: nil)
-        }
+    init(training: TrainingModel) {
+        self.training = training
+        super.init(nibName: nil, bundle: nil)
+    }
 
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -46,6 +46,31 @@ class CurrentTrainingController: UIViewController {
         return view
     }()
 
+    let quizData: [String: [QuizQuestion]] = [
+        "The Mirage A Execution": [
+            QuizQuestion(question: "What is the main objective of the Mirage A Execution?",
+                         options: ["Rush B with no utility", "Gain mid control and rotate to A", "Execute onto A using Smokes and Flashes", "Fake an A push and go B"],
+                         correctAnswer: "Execute onto A using Smokes and Flashes"),
+
+            QuizQuestion(question: "Which Smokes are necessary for this execution?",
+                         options: ["Jungle, CT, Stairs", "B Short, Window, Mid", "B Apps, Market, Van", "No Smokes are needed"],
+                         correctAnswer: "Jungle, CT, Stairs"),
+
+            QuizQuestion(question: "What is the purpose of the Flashbangs in this strategy?",
+                         options: ["To blind your teammates", "To block enemy vision", "To blind defenders peeking A Site", "To delay a retake"],
+                         correctAnswer: "To blind defenders peeking A Site"),
+
+            QuizQuestion(question: "Where should the Molotov be placed?",
+                         options: ["CT Spawn", "Default (common plant spot)", "Mid Window", "Jungle"],
+                         correctAnswer: "Default (common plant spot)"),
+
+            QuizQuestion(question: "What is the best post-plant setup for this tactic?",
+                         options: ["All five players hide in T-Spawn", "One player Ramp, one in Palace, and others covering Jungle and CT", "Everyone stays on the bombsite", "Rush into Market"],
+                         correctAnswer: "One player Ramp, one in Palace, and others covering Jungle and CT")
+        ]
+    ]
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .viewBackgroundColor
@@ -60,19 +85,26 @@ class CurrentTrainingController: UIViewController {
 
     private func setupConstraints() {
         collectionView.snp.remakeConstraints { make in
-//            make.top.equalTo(trainingImage.snp.bottom).offset(32 * Constraint.yCoeff)
+            //            make.top.equalTo(trainingImage.snp.bottom).offset(32 * Constraint.yCoeff)
             make.top.leading.trailing.bottom.equalToSuperview()
         }
 
         quizView.snp.remakeConstraints { make in
-            make.leading.bottom.trailing.equalToSuperview()
-            make.height.equalTo(477 * Constraint.yCoeff)
+            make.edges.equalToSuperview()
         }
     }
 
+    //    private func unHideQuizView() {
+    //        quizView.isHidden = false
+    //    }
+
     private func unHideQuizView() {
+        if let quiz = quizData[training.title] {
+            quizView.configure(with: quiz)
+        }
         quizView.isHidden = false
     }
+
 
     private func pressBackButton() {
         navigationController?.popViewController(animated: true)
@@ -87,7 +119,7 @@ extension CurrentTrainingController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CurrentTrainingCell", for: indexPath) as? CurrentTrainingCell else {
             return UICollectionViewCell()

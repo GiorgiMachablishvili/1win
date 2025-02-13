@@ -116,7 +116,6 @@ class SelectTheCommand: UIView {
                 teamViews.append(secondTeamView)
                 rowStackView.addArrangedSubview(secondTeamView)
             }
-
             teamsGridView.addArrangedSubview(rowStackView)
         }
     }
