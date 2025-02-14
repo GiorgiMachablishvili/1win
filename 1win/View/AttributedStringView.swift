@@ -10,13 +10,13 @@ import SnapKit
 
 class AttributedStringView: UIView {
 
-    private let leftImageView: UIImageView = {
+    private lazy var leftImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         return view
     }()
 
-    private let textLabel: UILabel = {
+    private lazy var textLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.montserratVariableFontWght(size: 12)
         view.textColor = UIColor.whiteColor.withAlphaComponent(0.6)
@@ -24,14 +24,13 @@ class AttributedStringView: UIView {
         return view
     }()
 
-    private let rightText: UILabel = {
+    private lazy var rightText: UILabel = {
         let view = UILabel()
         view.font = UIFont.montserratVariableFontWght(size: 12)
         view.textColor = UIColor.whiteColor.withAlphaComponent(0.6)
         view.textAlignment = .right
         return view
     }()
-
 
     init(leftImage: UIImage?, text: String, text2: String) {
         super.init(frame: .zero)

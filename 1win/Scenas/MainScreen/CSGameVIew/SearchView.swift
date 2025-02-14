@@ -20,7 +20,7 @@ class SearchView: UIView {
         return view
     }()
 
-    private lazy var searchBarView: UISearchBar = {
+    lazy var searchBarView: UISearchBar = {
         let view = UISearchBar(frame: .zero)
         view.placeholder = "Search..."
         view.searchBarStyle = .minimal

@@ -7,12 +7,6 @@
 
 import Foundation
 
-//struct TrainingModel {
-//    let image: String
-//    let title: String
-//    let description: String
-//}
-
 struct TrainingModel {
     let image: String
     let title: String

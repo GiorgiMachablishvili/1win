@@ -11,6 +11,8 @@ import SnapKit
 class QuizView: UIView {
 
     var didPressCloseButton: (() -> Void)?
+    var didFinishQuiz: ((Int, Int) -> Void)?
+
     var questions: [QuizQuestion] = []
     private var currentQuestionIndex = 0
     private var score = 0
@@ -256,13 +258,14 @@ class QuizView: UIView {
     }
 
     private func showFinalScore() {
-        let alert = UIAlertController(title: "Quiz Completed", message: "Your Score: \(score)/\(questions.count)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            self.didPressCloseButton?()
-        })
-        if let viewController = self.window?.rootViewController {
-            viewController.present(alert, animated: true)
-        }
+//        let alert = UIAlertController(title: "Quiz Completed", message: "Your Score: \(score)/\(questions.count)", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+//            self.didPressCloseButton?()
+//        })
+//        if let viewController = self.window?.rootViewController {
+//            viewController.present(alert, animated: true)
+//        }
+        didFinishQuiz?(score, questions.count)
     }
 
     @objc private func closeButtonPressed() {

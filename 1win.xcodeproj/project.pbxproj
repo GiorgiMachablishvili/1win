@@ -63,6 +63,8 @@
 		E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */; };
 		E3E8CD222D5E1E7E005B0FD2 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */; };
 		E3E8CD242D5E6B83005B0FD2 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */; };
+		E3E8CD262D5F6CAB005B0FD2 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */; };
+		E3E8CD282D5F9503005B0FD2 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD272D5F9503005B0FD2 /* RecommendationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,8 @@
 		E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingModel.swift; sourceTree = "<group>"; };
 		E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
+		E3E8CD272D5F9503005B0FD2 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,8 @@
 				E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */,
 				E3E8CCFF2D5A7973005B0FD2 /* AttributedStringView.swift */,
 				E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */,
+				E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */,
+				E3E8CD272D5F9503005B0FD2 /* RecommendationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				E3E8CD222D5E1E7E005B0FD2 /* QuizView.swift in Sources */,
 				E3E8CC932D57D358005B0FD2 /* SignInController.swift in Sources */,
 				E3E8CCCA2D57D8D2005B0FD2 /* URL+Extension.swift in Sources */,
+				E3E8CD262D5F6CAB005B0FD2 /* QuizResultView.swift in Sources */,
 				E3E8CD002D5A7973005B0FD2 /* AttributedStringView.swift in Sources */,
 				E3E8CCFC2D5A738D005B0FD2 /* TournamentDescriptionCell.swift in Sources */,
 				E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */,
@@ -467,6 +474,7 @@
 				E3E8CCC82D57D6B5005B0FD2 /* UICornerRadius.swift in Sources */,
 				E3E8CC912D57D358005B0FD2 /* SceneDelegate.swift in Sources */,
 				E3E8CCDD2D57E1C1005B0FD2 /* TutorialView.swift in Sources */,
+				E3E8CD282D5F9503005B0FD2 /* RecommendationView.swift in Sources */,
 				E3E8CD0F2D5BE6D5005B0FD2 /* TrainingCell.swift in Sources */,
 				E3E8CCCC2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift in Sources */,
 				E3E8CCFA2D5A546F005B0FD2 /* TournamentDetailsInfo.swift in Sources */,
