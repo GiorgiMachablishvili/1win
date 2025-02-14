@@ -190,6 +190,7 @@ extension CSGameController: UICollectionViewDelegate, UICollectionViewDataSource
                 for: indexPath) as? PopularTrainingCell else {
                 return UICollectionViewCell()
             }
+            
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(

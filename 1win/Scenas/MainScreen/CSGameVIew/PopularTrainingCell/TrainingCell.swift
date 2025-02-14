@@ -102,4 +102,10 @@ class TrainingCell: UICollectionViewCell {
             make.leading.trailing.equalToSuperview().inset(12 * Constraint.xCoeff)
         }
     }
+
+    func configure (with data: TrainingModel) {
+        tournamentImage.image = UIImage(named: data.image)
+        fastASplitTitle.text = data.title
+        fastASplitInfo.text = data.description
+    }
 }

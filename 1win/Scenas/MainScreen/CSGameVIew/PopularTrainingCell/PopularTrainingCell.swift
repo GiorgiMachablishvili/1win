@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 
 class PopularTrainingCell: UICollectionViewCell {
+
+    private var trainingModel: TrainingModel?
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - (40 * Constraint.xCoeff), height: 210)
         layout.minimumLineSpacing = 10
-
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
         view.showsHorizontalScrollIndicator = false
@@ -56,6 +58,7 @@ extension PopularTrainingCell: UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrainingCell", for: indexPath) as? TrainingCell else {
             return UICollectionViewCell()
         }
+//        cell.configure(with: model)
         return cell
     }
 }
