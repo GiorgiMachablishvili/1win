@@ -10,8 +10,21 @@ import SnapKit
 
 class PopularTrainingCell: UICollectionViewCell {
 
-    private var trainingModel: TrainingModel?
+    var trainings: [TrainingModel] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
+    private lazy var popularTrainingTitle: UILabel = {
+        let view = UILabel(frame: .zero)
+        view.text = "Popular training"
+        view.textColor = UIColor.whiteColor
+        view.font = UIFont.goldmanBold(size: 20)
+        view.textAlignment = .left
+        return view
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -38,27 +51,35 @@ class PopularTrainingCell: UICollectionViewCell {
     }
 
     private func setup() {
+        addSubview(popularTrainingTitle)
         addSubview(collectionView)
     }
 
     private func setupConstraints() {
+        popularTrainingTitle.snp.remakeConstraints { make in
+            make.top.equalTo(snp.top).offset(16 * Constraint.yCoeff)
+            make.leading.equalTo(snp.leading).offset(20 * Constraint.xCoeff)
+            make.height.equalTo(24 * Constraint.yCoeff)
+        }
+
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(popularTrainingTitle.snp.bottom).offset(14 * Constraint.yCoeff)
+            make.leading.bottom.trailing.equalToSuperview()
         }
     }
 }
 
 extension PopularTrainingCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    // MARK: - UICollectionView DataSource & Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return trainings.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrainingCell", for: indexPath) as? TrainingCell else {
             return UICollectionViewCell()
         }
-//        cell.configure(with: model)
+        let training = trainings[indexPath.item]
+        cell.configure(with: training)
         return cell
     }
 }

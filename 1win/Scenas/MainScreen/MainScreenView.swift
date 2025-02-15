@@ -50,8 +50,17 @@ class MainScreenView: UIViewController {
 
     private lazy var trainingMaterials: TrainingMaterialsView = {
         let view = TrainingMaterialsView()
-        view.didPressCSButton = { [weak self] in
-            self?.moveToGameView()
+        view.didPressCSButton = { [weak self] gameType in
+            self?.moveToGameView(gameType: gameType)
+        }
+        view.didPressDotaButton = { [weak self] gameType in
+            self?.moveToGameView(gameType: gameType)
+        }
+        view.didPressLOLButton = { [weak self] gameType in
+            self?.moveToGameView(gameType: gameType)
+        }
+        view.didPressValorantButton = { [weak self] gameType in
+            self?.moveToGameView(gameType: gameType)
         }
         return view
     }()
@@ -96,8 +105,8 @@ class MainScreenView: UIViewController {
         }
     }
 
-    private func moveToGameView() {
-        let csGameVC = CSGameController()
+    private func moveToGameView(gameType: String) {
+        let csGameVC = CSGameController(gameType: gameType)
         navigationController?.pushViewController(csGameVC, animated: true)
     }
 

@@ -9,14 +9,6 @@ import UIKit
 import SnapKit
 
 class TrainingCell: UICollectionViewCell {
-    private lazy var popularTrainingTitle: UILabel = {
-        let view = UILabel(frame: .zero)
-        view.text = "Popular training"
-        view.textColor = UIColor.whiteColor
-        view.font = UIFont.goldmanBold(size: 20)
-        view.textAlignment = .left
-        return view
-    }()
 
     private var trainingInfoBackground: UIView = {
         let view = UIView(frame: .zero)
@@ -28,7 +20,7 @@ class TrainingCell: UICollectionViewCell {
     private lazy var tournamentImage: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.image = UIImage(named: "tournamentImage")
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
         view.makeRoundCorners(16)
         return view
     }()
@@ -47,7 +39,7 @@ class TrainingCell: UICollectionViewCell {
         view.text = "Dust2, Attack on A, Fast Separation, Flashes and Smokejumpers"
         view.textColor = UIColor.whiteColor.withAlphaComponent(0.3)
         view.font = UIFont.montserratVariableFontWght(size: 12)
-        view.numberOfLines = 0
+        view.numberOfLines = 2
         view.textAlignment = .left
         return view
     }()
@@ -64,7 +56,6 @@ class TrainingCell: UICollectionViewCell {
     }
 
     private func setup() {
-        addSubview(popularTrainingTitle)
         addSubview(trainingInfoBackground)
         trainingInfoBackground.addSubview(tournamentImage)
         trainingInfoBackground.addSubview(fastASplitTitle)
@@ -72,16 +63,10 @@ class TrainingCell: UICollectionViewCell {
     }
 
     private func setupConstraints() {
-        popularTrainingTitle.snp.remakeConstraints { make in
-            make.top.equalTo(snp.top).offset(16 * Constraint.yCoeff)
-            make.leading.equalTo(snp.leading).offset(20 * Constraint.xCoeff)
-            make.height.equalTo(24 * Constraint.yCoeff)
-        }
-
         trainingInfoBackground.snp.remakeConstraints { make in
-            make.top.equalTo(popularTrainingTitle.snp.bottom).offset(16 * Constraint.yCoeff)
+            make.top.equalTo(snp.top).offset(2 * Constraint.yCoeff)
             make.leading.equalTo(snp.leading).offset(20 * Constraint.xCoeff)
-            make.height.equalTo(154 * Constraint.yCoeff)
+            make.height.equalTo(165 * Constraint.yCoeff)
             make.width.equalTo(320 * Constraint.xCoeff)
         }
 
@@ -103,7 +88,7 @@ class TrainingCell: UICollectionViewCell {
         }
     }
 
-    func configure (with data: TrainingModel) {
+    func configure(with data: TrainingModel) {
         tournamentImage.image = UIImage(named: data.image)
         fastASplitTitle.text = data.title
         fastASplitInfo.text = data.description

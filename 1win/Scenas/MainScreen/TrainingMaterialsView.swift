@@ -10,7 +10,13 @@ import SnapKit
 
 class TrainingMaterialsView: UIView {
 
-    var didPressCSButton: (() -> Void)?
+//    var didPressCSButton: (() -> Void)?
+//    var didPressDotaButton: (() -> Void)?
+
+    var didPressCSButton: ((String) -> Void)?
+    var didPressDotaButton: ((String) -> Void)?
+    var didPressLOLButton: ((String) -> Void)?
+    var didPressValorantButton: ((String) -> Void)?
 
     private lazy var trainingMaterialsTitle: UILabel = {
         let view = UILabel(frame: .zero)
@@ -113,18 +119,18 @@ class TrainingMaterialsView: UIView {
     }
 
     @objc private func clickCsButton() {
-        didPressCSButton?()
+        didPressCSButton?("CS")
     }
 
     @objc private func clickDota2Button() {
-
+        didPressDotaButton?("Dota2")
     }
 
     @objc private func clickLeagueOfLegendsButton() {
-
+        didPressLOLButton?("LOL")
     }
 
     @objc private func clickValorantButton() {
-
+        didPressValorantButton?("Valorant")
     }
 }

@@ -59,12 +59,20 @@
 		E3E8CD132D5C96AA005B0FD2 /* AllTrainingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD122D5C96AA005B0FD2 /* AllTrainingHeaderView.swift */; };
 		E3E8CD152D5D105A005B0FD2 /* CurrentTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD142D5D105A005B0FD2 /* CurrentTrainingController.swift */; };
 		E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */; };
-		E3E8CD192D5D2AD1005B0FD2 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */; };
+		E3E8CD192D5D2AD1005B0FD2 /* TrainingModelCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD182D5D2AD1005B0FD2 /* TrainingModelCS.swift */; };
 		E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */; };
 		E3E8CD222D5E1E7E005B0FD2 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */; };
-		E3E8CD242D5E6B83005B0FD2 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */; };
+		E3E8CD242D5E6B83005B0FD2 /* QuizCSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD232D5E6B83005B0FD2 /* QuizCSQuestion.swift */; };
 		E3E8CD262D5F6CAB005B0FD2 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */; };
 		E3E8CD282D5F9503005B0FD2 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD272D5F9503005B0FD2 /* RecommendationView.swift */; };
+		E3E8CD2C2D611247005B0FD2 /* TrainingModelDota2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD2B2D611247005B0FD2 /* TrainingModelDota2.swift */; };
+		E3E8CD2E2D612787005B0FD2 /* QuizDota2Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD2D2D612787005B0FD2 /* QuizDota2Question.swift */; };
+		E3E8CD312D612E3E005B0FD2 /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD302D612E3E005B0FD2 /* QuizQuestions.swift */; };
+		E3E8CD332D613162005B0FD2 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD322D613162005B0FD2 /* TrainingModel.swift */; };
+		E3E8CD352D6141AB005B0FD2 /* TrainingModelLoL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD342D6141AB005B0FD2 /* TrainingModelLoL.swift */; };
+		E3E8CD372D614659005B0FD2 /* QuizLOLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD362D614659005B0FD2 /* QuizLOLData.swift */; };
+		E3E8CD392D614866005B0FD2 /* TrainingModelValorant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD382D614866005B0FD2 /* TrainingModelValorant.swift */; };
+		E3E8CD3B2D614970005B0FD2 /* QuizValorantQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD3A2D614970005B0FD2 /* QuizValorantQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,12 +123,20 @@
 		E3E8CD122D5C96AA005B0FD2 /* AllTrainingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrainingHeaderView.swift; sourceTree = "<group>"; };
 		E3E8CD142D5D105A005B0FD2 /* CurrentTrainingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingController.swift; sourceTree = "<group>"; };
 		E3E8CD162D5D11FE005B0FD2 /* CurrentTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingCell.swift; sourceTree = "<group>"; };
-		E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
+		E3E8CD182D5D2AD1005B0FD2 /* TrainingModelCS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelCS.swift; sourceTree = "<group>"; };
 		E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingModel.swift; sourceTree = "<group>"; };
 		E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
-		E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		E3E8CD232D5E6B83005B0FD2 /* QuizCSQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCSQuestion.swift; sourceTree = "<group>"; };
 		E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
 		E3E8CD272D5F9503005B0FD2 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
+		E3E8CD2B2D611247005B0FD2 /* TrainingModelDota2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelDota2.swift; sourceTree = "<group>"; };
+		E3E8CD2D2D612787005B0FD2 /* QuizDota2Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDota2Question.swift; sourceTree = "<group>"; };
+		E3E8CD302D612E3E005B0FD2 /* QuizQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestions.swift; sourceTree = "<group>"; };
+		E3E8CD322D613162005B0FD2 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
+		E3E8CD342D6141AB005B0FD2 /* TrainingModelLoL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelLoL.swift; sourceTree = "<group>"; };
+		E3E8CD362D614659005B0FD2 /* QuizLOLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLOLData.swift; sourceTree = "<group>"; };
+		E3E8CD382D614866005B0FD2 /* TrainingModelValorant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelValorant.swift; sourceTree = "<group>"; };
+		E3E8CD3A2D614970005B0FD2 /* QuizValorantQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizValorantQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +232,17 @@
 				E3E8CCCE2D57DAF4005B0FD2 /* UserCreate.swift */,
 				E3E8CCF92D5A546F005B0FD2 /* TournamentDetailsInfo.swift */,
 				E3E8CD042D5B5069005B0FD2 /* TournamentTeam.swift */,
-				E3E8CD182D5D2AD1005B0FD2 /* TrainingModel.swift */,
+				E3E8CD322D613162005B0FD2 /* TrainingModel.swift */,
+				E3E8CD182D5D2AD1005B0FD2 /* TrainingModelCS.swift */,
+				E3E8CD2B2D611247005B0FD2 /* TrainingModelDota2.swift */,
+				E3E8CD342D6141AB005B0FD2 /* TrainingModelLoL.swift */,
+				E3E8CD382D614866005B0FD2 /* TrainingModelValorant.swift */,
 				E3E8CD1C2D5E0977005B0FD2 /* CurrentTrainingModel.swift */,
-				E3E8CD232D5E6B83005B0FD2 /* QuizQuestion.swift */,
+				E3E8CD302D612E3E005B0FD2 /* QuizQuestions.swift */,
+				E3E8CD232D5E6B83005B0FD2 /* QuizCSQuestion.swift */,
+				E3E8CD2D2D612787005B0FD2 /* QuizDota2Question.swift */,
+				E3E8CD362D614659005B0FD2 /* QuizLOLData.swift */,
+				E3E8CD3A2D614970005B0FD2 /* QuizValorantQuestion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -449,6 +473,7 @@
 				E3E8CCCF2D57DAF4005B0FD2 /* UserCreate.swift in Sources */,
 				E3E8CCEF2D592D29005B0FD2 /* ChangeImageCell.swift in Sources */,
 				E3E8CD132D5C96AA005B0FD2 /* AllTrainingHeaderView.swift in Sources */,
+				E3E8CD2E2D612787005B0FD2 /* QuizDota2Question.swift in Sources */,
 				E3E8CD082D5BCF1F005B0FD2 /* CSGameController.swift in Sources */,
 				E3E8CCEB2D58DFC1005B0FD2 /* TournamentCell.swift in Sources */,
 				E3E8CCF62D5A2BE9005B0FD2 /* TournamentDetailsView.swift in Sources */,
@@ -462,28 +487,35 @@
 				E3E8CC8F2D57D358005B0FD2 /* AppDelegate.swift in Sources */,
 				E3E8CCE72D57ECCB005B0FD2 /* BenefitsView.swift in Sources */,
 				E3E8CCF82D5A3CDD005B0FD2 /* TournamentInfo.swift in Sources */,
+				E3E8CD372D614659005B0FD2 /* QuizLOLData.swift in Sources */,
+				E3E8CD392D614866005B0FD2 /* TrainingModelValorant.swift in Sources */,
+				E3E8CD352D6141AB005B0FD2 /* TrainingModelLoL.swift in Sources */,
 				E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */,
-				E3E8CD242D5E6B83005B0FD2 /* QuizQuestion.swift in Sources */,
+				E3E8CD332D613162005B0FD2 /* TrainingModel.swift in Sources */,
+				E3E8CD242D5E6B83005B0FD2 /* QuizCSQuestion.swift in Sources */,
 				E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,
 				E3E8CCE92D57EF9F005B0FD2 /* CustomLabelView.swift in Sources */,
 				E3E8CCDB2D57E1AB005B0FD2 /* ProfileView.swift in Sources */,
 				E3E8CCC62D57D689005B0FD2 /* Color.swift in Sources */,
 				E3E8CCC02D57D5A4005B0FD2 /* Constraint.swift in Sources */,
-				E3E8CD192D5D2AD1005B0FD2 /* TrainingModel.swift in Sources */,
+				E3E8CD192D5D2AD1005B0FD2 /* TrainingModelCS.swift in Sources */,
 				E3E8CCC82D57D6B5005B0FD2 /* UICornerRadius.swift in Sources */,
 				E3E8CC912D57D358005B0FD2 /* SceneDelegate.swift in Sources */,
 				E3E8CCDD2D57E1C1005B0FD2 /* TutorialView.swift in Sources */,
 				E3E8CD282D5F9503005B0FD2 /* RecommendationView.swift in Sources */,
+				E3E8CD312D612E3E005B0FD2 /* QuizQuestions.swift in Sources */,
 				E3E8CD0F2D5BE6D5005B0FD2 /* TrainingCell.swift in Sources */,
 				E3E8CCCC2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift in Sources */,
 				E3E8CCFA2D5A546F005B0FD2 /* TournamentDetailsInfo.swift in Sources */,
 				E3E8CCD42D57DBFE005B0FD2 /* MainScreenView.swift in Sources */,
+				E3E8CD3B2D614970005B0FD2 /* QuizValorantQuestion.swift in Sources */,
 				E3E8CD0C2D5BD289005B0FD2 /* PopularTrainingCell.swift in Sources */,
 				E3E8CCD72D57DDB7005B0FD2 /* MainViewControllerTab.swift in Sources */,
 				E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */,
 				E3E8CD052D5B5069005B0FD2 /* TournamentTeam.swift in Sources */,
 				E3E8CD112D5C7125005B0FD2 /* AllTrainingCell.swift in Sources */,
+				E3E8CD2C2D611247005B0FD2 /* TrainingModelDota2.swift in Sources */,
 				E3E8CCF32D594540005B0FD2 /* CreateAndDeleteCell.swift in Sources */,
 				E3E8CD152D5D105A005B0FD2 /* CurrentTrainingController.swift in Sources */,
 				E3E8CCF12D59314D005B0FD2 /* LinksCell.swift in Sources */,
