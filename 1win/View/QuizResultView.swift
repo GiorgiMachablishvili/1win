@@ -199,14 +199,6 @@ class QuizResultView: UIView {
         return attributedString
     }
 
-    /// Function to update the result label with a dynamic correct answer count
-//    func updateResult(correctAnswers: Int, totalQuestions: Int) {
-//        let percentage = (correctAnswers * 100) / totalQuestions
-//        recommendationView.percentageLabel.text = "\(percentage)%"
-//        
-//        quizResultLabel.attributedText = createExpAttributedString(correctAnswers: correctAnswers, totalQuestions: totalQuestions)
-//    }
-
     func updateResult(correctAnswers: Int, totalQuestions: Int) {
         let percentage = (correctAnswers * 100) / totalQuestions
         recommendationView.percentageLabel.text = "\(percentage)%"
@@ -252,6 +244,19 @@ class QuizResultView: UIView {
             }
 
             imageStackView.addArrangedSubview(imageView)
+        }
+
+        switch correctAnswers {
+        case 0:
+            recommendationView.recommendationLabel.text = "You should learn more theory."
+        case 1...2:
+            recommendationView.recommendationLabel.text = "That's not bad, you should learn more theory."
+        case 3...4:
+            recommendationView.recommendationLabel.text = "That's a good result, but you should learn some theory."
+        case 5:
+            recommendationView.recommendationLabel.text = "That's is perfect!"
+        default:
+            recommendationView.recommendationLabel.text = "That's is good!"
         }
     }
 

@@ -177,6 +177,10 @@ class TournamentDetailsView: UIViewController {
         self.hidesBottomBarWhenPushed = false
     }
 
+    private func goBackPage() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
 
 
@@ -205,6 +209,9 @@ extension TournamentDetailsView: UICollectionViewDelegate, UICollectionViewDataS
                 withReuseIdentifier: String(describing: TournamentDescriptionCell.self),
                 for: indexPath) as? TournamentDescriptionCell else {
                 return UICollectionViewCell()
+            }
+            cell.didPressBackButton = { [weak self] in
+                self?.goBackPage()
             }
 
             return cell

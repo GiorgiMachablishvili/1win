@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class TournamentDescriptionCell: UICollectionViewCell {
+
+    var didPressBackButton: (() -> Void)?
+
     private lazy var backButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "backButton"), for: .normal)
@@ -91,7 +94,7 @@ class TournamentDescriptionCell: UICollectionViewCell {
     }
 
     @objc private func pressBackButton() {
-
+        didPressBackButton?()
     }
 
     func configure(with data: TournamentDetailsInfo) {

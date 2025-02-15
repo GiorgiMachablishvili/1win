@@ -258,17 +258,20 @@ class QuizView: UIView {
     }
 
     private func showFinalScore() {
-//        let alert = UIAlertController(title: "Quiz Completed", message: "Your Score: \(score)/\(questions.count)", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-//            self.didPressCloseButton?()
-//        })
-//        if let viewController = self.window?.rootViewController {
-//            viewController.present(alert, animated: true)
-//        }
         didFinishQuiz?(score, questions.count)
     }
 
     @objc private func closeButtonPressed() {
+//        resetQuiz()
         didPressCloseButton?()
     }
+//
+//    private func resetQuiz() {
+//        questions.shuffle()
+//        currentQuestionIndex = 0
+//        score = 0
+//        setupQuestionIndicators()
+//        updateQuestionIndicator()
+//        showQuestion()
+//    }
 }

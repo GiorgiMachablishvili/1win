@@ -26,7 +26,7 @@ class RecommendationView: UIView {
         return view
     }()
 
-    private lazy var recommendationLabel: UILabel = {
+    lazy var recommendationLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.text = "That's a good result, but you should learn some theory."
         view.textColor = UIColor.whiteColor.withAlphaComponent(0.2)

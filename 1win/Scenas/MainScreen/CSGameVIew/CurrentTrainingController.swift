@@ -12,10 +12,12 @@ class CurrentTrainingController: UIViewController {
 
     private let training: TrainingModel
     private let selectedQuestions: [QuizQuestion]
+    private let gameType: String 
 
-    init(training: TrainingModel, questions: [QuizQuestion]) {
+    init(training: TrainingModel, questions: [QuizQuestion], gameType: String) {
         self.training = training
         self.selectedQuestions = questions
+        self.gameType = gameType
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -113,6 +115,25 @@ class CurrentTrainingController: UIViewController {
     }
 
     private func closeView() {
+        let selectedQuizData: [QuizQuestion]
+
+        switch gameType {
+        case "Dota2":
+            selectedQuizData = quizDota2Data
+        case "LOL":
+            selectedQuizData = quizLoLData
+        case "Valorant":
+            selectedQuizData = quizValorantData
+        default:
+            selectedQuizData = quizCSData
+        }
+
+        // Get a new random set of 5 questions
+        let randomQuestions = Array(selectedQuizData.shuffled().prefix(5))
+
+        // Configure quizView with new questions before hiding
+        quizView.configure(with: randomQuestions)
+
         quizView.isHidden = true
     }
 

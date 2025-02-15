@@ -239,6 +239,7 @@ extension CSGameController: UICollectionViewDelegate, UICollectionViewDataSource
         if indexPath.section == 1 {
             let selectedTraining: TrainingModel = isSearching ? filteredTrainings[indexPath.item] : trainings[indexPath.item]
 
+            // ✅ Select the correct quiz dataset based on the game type
             let selectedQuizData: [QuizQuestion]
             switch gameType {
             case "Dota2":
@@ -255,7 +256,7 @@ extension CSGameController: UICollectionViewDelegate, UICollectionViewDataSource
             let randomQuestions = Array(selectedQuizData.shuffled().prefix(5))
 
             // ✅ Show the quiz view with selected questions
-            let currentTrainingVC = CurrentTrainingController(training: selectedTraining, questions: randomQuestions)
+            let currentTrainingVC = CurrentTrainingController(training: selectedTraining, questions: randomQuestions, gameType: gameType)
             navigationController?.pushViewController(currentTrainingVC, animated: true)
         }
     }
