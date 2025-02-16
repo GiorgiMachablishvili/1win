@@ -12,7 +12,7 @@ class SearchView: UIView {
 
     var didPressBackButton: (() -> Void)?
 
-    private lazy var backButton: UIButton = {
+    lazy var backButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "backButton"), for: .normal)
         view.contentMode = .scaleAspectFit

@@ -18,7 +18,6 @@ extension UIColor {
 
 
 
-
     static let titlesBlack = UIColor(hexString: "#1B1E24")
 
     static let grayLabel = UIColor(hexString: "#969696")
@@ -30,15 +29,6 @@ extension UIColor {
     static let blackColor = UIColor(hexString: "#16181C")
 
     static let pointViewColor = UIColor(hexString: "#20242C")
-
-
-
-    static let backgroundColorGamePointView = UIColor(hexString: "#00000033")
-
-    static let bonusCostViewBackground = UIColor(hexString: "#4E65FD")
-
-    static let userImageGrayBorderColor = UIColor(hexString: "#2B2F38")
-
 }
 
 

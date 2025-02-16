@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainScreenView: UIViewController {
+class MainScreenController: UIViewController {
 
     private let tournamentsData: [TournamentDetailsInfo] = [
         TournamentDetailsInfo(image: "tournamentImage", title: "BLAST Bounty Spring 2025", startEvent: "26.01.2025", endEvent: "14.02.2025", prizePrice: "$100,000", tournamentVenue: "USA"),
@@ -106,7 +106,7 @@ class MainScreenView: UIViewController {
     }
 
     private func moveToGameView(gameType: String) {
-        let csGameVC = CSGameController(gameType: gameType)
+        let csGameVC = GameController(gameType: gameType)
         navigationController?.pushViewController(csGameVC, animated: true)
     }
 
@@ -115,7 +115,7 @@ class MainScreenView: UIViewController {
     }
 }
 
-extension MainScreenView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tournamentsData.count
     }

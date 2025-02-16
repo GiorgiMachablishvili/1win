@@ -167,7 +167,7 @@ class TournamentDetailsView: UIViewController {
     }
 
     private func unHideSelectTheCommandView () {
-        let viewVC = MainScreenView()
+        let viewVC = MainScreenController()
         selectTheCommand.isHidden = false
         viewVC.hidesBottomBarWhenPushed = true
     }

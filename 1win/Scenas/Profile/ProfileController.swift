@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileView: UIViewController {
+class ProfileController: UIViewController {
 
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -150,7 +150,7 @@ class ProfileView: UIViewController {
 }
 
 
-extension ProfileView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }

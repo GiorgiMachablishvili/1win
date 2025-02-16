@@ -265,7 +265,7 @@ class SignInController: UIViewController {
                     print("Received User ID: \(userInfo.id)")
 
                     if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                        let mainViewController = MainScreenView()
+                        let mainViewController = MainScreenController()
                         let navigationController = UINavigationController(rootViewController: mainViewController)
                         sceneDelegate.changeRootViewController(navigationController)
                     }

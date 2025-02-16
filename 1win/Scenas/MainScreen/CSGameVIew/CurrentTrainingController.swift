@@ -61,6 +61,10 @@ class CurrentTrainingController: UIViewController {
         view.didPressCloseButton = { [weak self] in
             self?.pressHideQuizResult()
         }
+
+        view.didPressCompleteButton = { [weak self] in
+            self?.moveToTrainingResultController()
+        }
         return view
     }()
 
@@ -139,6 +143,27 @@ class CurrentTrainingController: UIViewController {
 
     private func pressHideQuizResult() {
         quizResult.isHidden = true
+    }
+
+    private func moveToTrainingResultController() {
+        let trainingResultVC = TrainingResultController()
+        let percentage = quizResult.recommendationView.percentageLabel.text ?? "0%"
+        trainingResultVC.percentage = percentage
+
+        switch gameType {
+        case "Dota2":
+            trainingResultVC.trainings = trainingsDota2
+        case "CS":
+            trainingResultVC.trainings = trainingsCS
+        case "LOL":
+            trainingResultVC.trainings = trainingsLoL
+        case "Valorant":
+            trainingResultVC.trainings = trainingsValorant
+        default:
+            trainingResultVC.trainings = []
+        }
+
+        navigationController?.pushViewController(trainingResultVC, animated: true)
     }
 }
 

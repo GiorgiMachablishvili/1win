@@ -11,6 +11,7 @@ import SnapKit
 class QuizResultView: UIView {
 
     var didPressCloseButton: (() -> Void)?
+    var didPressCompleteButton: (() -> Void)?
 
     private lazy var backgroundView: UIView = {
         let view = UIView(frame: .zero)
@@ -76,7 +77,7 @@ class QuizResultView: UIView {
         return view
     }()
 
-    private lazy var recommendationView: RecommendationView = {
+    lazy var recommendationView: RecommendationView = {
         let view = RecommendationView()
         view.backgroundColor = .clear
         return view
@@ -89,7 +90,6 @@ class QuizResultView: UIView {
         view.titleLabel?.font = UIFont.goldmanBold(size: 16)
         view.backgroundColor = .signInButtonBackgroundColor
         view.makeRoundCorners(12)
-        view.isUserInteractionEnabled = false
         view.addTarget(self, action: #selector(completeButtonPressed), for: .touchUpInside)
         return view
     }()
@@ -266,6 +266,7 @@ class QuizResultView: UIView {
     }
 
     @objc private func completeButtonPressed() {
-
+        print("press complete button")
+        didPressCompleteButton?()
     }
 }

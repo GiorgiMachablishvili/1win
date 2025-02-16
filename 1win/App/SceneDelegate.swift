@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func ifUserISCreatedOrNot() {
         if let userId = UserDefaults.standard.string(forKey: "userId"), !userId.isEmpty {
             print(userId)
-            let mainViewController = MainScreenView()
+            let mainViewController = MainScreenController()
             UserDefaults.standard.setValue(false, forKey: "isGuestUser")
             let navigationController = UINavigationController(rootViewController: mainViewController)
             changeRootViewController(navigationController)

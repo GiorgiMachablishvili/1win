@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CSGameController: UIViewController {
+class GameController: UIViewController {
 
     private var filteredTrainings: [TrainingModel] = []
     private var isSearching = false
@@ -182,7 +182,7 @@ class CSGameController: UIViewController {
     }
 }
 
-extension CSGameController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension GameController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -263,7 +263,7 @@ extension CSGameController: UICollectionViewDelegate, UICollectionViewDataSource
 
 }
 // MARK: - UISearchBar Delegate
-extension CSGameController: UISearchBarDelegate {
+extension GameController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             isSearching = false
