@@ -35,8 +35,8 @@ class CreateAndDeleteCell: UICollectionViewCell {
         view.setTitle("Delete Account", for: .normal)
         view.setTitleColor(UIColor.redColor, for: .normal)
         view.backgroundColor = .clear
+//        view.isHidden = true
         view.addTarget(self, action: #selector(clickDeleteButton), for: .touchUpInside)
-
         return view
     }()
 

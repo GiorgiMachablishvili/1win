@@ -78,6 +78,8 @@
 		E3E8CD412D627097005B0FD2 /* GameChooseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD402D627097005B0FD2 /* GameChooseCell.swift */; };
 		E3E8CD432D627FD9005B0FD2 /* GameButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD422D627FD9005B0FD2 /* GameButtonCell.swift */; };
 		E3E8CD452D633525005B0FD2 /* TutorialCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */; };
+		E3E8CD472D63B3C4005B0FD2 /* AchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD462D63B3C4005B0FD2 /* AchievementsCell.swift */; };
+		E3E8CD492D63B9FC005B0FD2 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD482D63B9FC005B0FD2 /* AchievementsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +149,8 @@
 		E3E8CD402D627097005B0FD2 /* GameChooseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameChooseCell.swift; sourceTree = "<group>"; };
 		E3E8CD422D627FD9005B0FD2 /* GameButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonCell.swift; sourceTree = "<group>"; };
 		E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCountView.swift; sourceTree = "<group>"; };
+		E3E8CD462D63B3C4005B0FD2 /* AchievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCell.swift; sourceTree = "<group>"; };
+		E3E8CD482D63B9FC005B0FD2 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 				E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */,
 				E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */,
 				E3E8CD272D5F9503005B0FD2 /* RecommendationView.swift */,
+				E3E8CD482D63B9FC005B0FD2 /* AchievementsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			children = (
 				E3E8CCDA2D57E1AB005B0FD2 /* ProfileController.swift */,
 				E3E8CCEE2D592D29005B0FD2 /* ChangeImageCell.swift */,
+				E3E8CD462D63B3C4005B0FD2 /* AchievementsCell.swift */,
 				E3E8CCF02D59314D005B0FD2 /* LinksCell.swift */,
 				E3E8CCF22D594540005B0FD2 /* CreateAndDeleteCell.swift */,
 			);
@@ -524,6 +530,7 @@
 				E3E8CD282D5F9503005B0FD2 /* RecommendationView.swift in Sources */,
 				E3E8CD312D612E3E005B0FD2 /* QuizQuestions.swift in Sources */,
 				E3E8CD0F2D5BE6D5005B0FD2 /* TrainingCell.swift in Sources */,
+				E3E8CD472D63B3C4005B0FD2 /* AchievementsCell.swift in Sources */,
 				E3E8CD412D627097005B0FD2 /* GameChooseCell.swift in Sources */,
 				E3E8CCCC2D57D8F6005B0FD2 /* UITabBarHideOrNot+Extension.swift in Sources */,
 				E3E8CD432D627FD9005B0FD2 /* GameButtonCell.swift in Sources */,
@@ -532,6 +539,7 @@
 				E3E8CD3B2D614970005B0FD2 /* QuizValorantQuestion.swift in Sources */,
 				E3E8CD0C2D5BD289005B0FD2 /* PopularTrainingCell.swift in Sources */,
 				E3E8CCD72D57DDB7005B0FD2 /* MainViewControllerTab.swift in Sources */,
+				E3E8CD492D63B9FC005B0FD2 /* AchievementsView.swift in Sources */,
 				E3E8CD1D2D5E0977005B0FD2 /* CurrentTrainingModel.swift in Sources */,
 				E3E8CD052D5B5069005B0FD2 /* TournamentTeam.swift in Sources */,
 				E3E8CD112D5C7125005B0FD2 /* AllTrainingCell.swift in Sources */,

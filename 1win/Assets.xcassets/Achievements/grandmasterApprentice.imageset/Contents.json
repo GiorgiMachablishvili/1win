@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "grandmasterApprentice.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -20,6 +20,15 @@ class ProfileController: UIViewController {
         return view
     }()
 
+    private lazy var achievementView: AchievementsView = {
+        let view = AchievementsView()
+        view.didPressCancelButton = { [weak self] in
+            self?.hideAchievementView()
+        }
+        view.isHidden = true
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -31,18 +40,28 @@ class ProfileController: UIViewController {
 
     func setupHierarchy() {
         collectionView.register(ChangeImageCell.self, forCellWithReuseIdentifier: String(describing: ChangeImageCell.self))
+        collectionView.register(AchievementsCell.self, forCellWithReuseIdentifier: String(describing: AchievementsCell.self))
         collectionView.register(LinksCell.self, forCellWithReuseIdentifier: String(describing: LinksCell.self))
         collectionView.register(CreateAndDeleteCell.self, forCellWithReuseIdentifier: String(describing: CreateAndDeleteCell.self))
     }
 
     private func setup() {
         view.addSubview(collectionView)
+        view.addSubview(achievementView)
     }
 
     private func setupConstraints() {
         collectionView.snp.remakeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        achievementView.snp.remakeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+
+    private func hideAchievementView() {
+        achievementView.isHidden = true
     }
 
     func configureCompositionLayout() {
@@ -52,8 +71,10 @@ class ProfileController: UIViewController {
             case 0:
                 return self?.changeProfileImageView()
             case 1:
-                return self?.linksView()
+                return self?.achievementsView()
             case 2:
+                return self?.linksView()
+            case 3:
                 return self?.createAndDeleteButtons()
             default:
                 return self?.defaultLayout()
@@ -84,6 +105,28 @@ class ProfileController: UIViewController {
         return section
     }
 
+    func achievementsView() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(70 * Constraint.yCoeff))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(70 * Constraint.yCoeff)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(
+            top: 16 * Constraint.yCoeff,
+            leading: 20 * Constraint.xCoeff,
+            bottom: 0 * Constraint.yCoeff,
+            trailing: 20 * Constraint.xCoeff
+        )
+        return section
+    }
+
     func linksView() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
@@ -98,7 +141,7 @@ class ProfileController: UIViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = .init(
-            top: 0 * Constraint.yCoeff,
+            top: 16 * Constraint.yCoeff,
             leading: 0 * Constraint.xCoeff,
             bottom: 0 * Constraint.yCoeff,
             trailing: 0 * Constraint.xCoeff
@@ -152,7 +195,7 @@ class ProfileController: UIViewController {
 
 extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -162,6 +205,8 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
         case 1:
             return 1
         case 2:
+            return 1
+        case 3:
             return 1
         default:
             return 0
@@ -179,12 +224,22 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: String(describing: AchievementsCell.self),
+                for: indexPath) as? AchievementsCell else {
+                return UICollectionViewCell()
+            }
+            cell.didSelectAchievement = { [weak self] title, imageName, description in
+                self?.showAchievementDetail(title: title, imageName: imageName, description: description)
+            }
+            return cell
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: String(describing: LinksCell.self),
                 for: indexPath) as? LinksCell else {
                 return UICollectionViewCell()
             }
             return cell
-        case 2:
+        case 3:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: String(describing: CreateAndDeleteCell.self),
                 for: indexPath) as? CreateAndDeleteCell else {
@@ -194,5 +249,9 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
         default:
             return UICollectionViewCell()
         }
+    }
+    private func showAchievementDetail(title: String, imageName: String, description: String) {
+        achievementView.setAchievementDetails(title: title, imageName: imageName, description: description)
+        achievementView.isHidden = false
     }
 }
