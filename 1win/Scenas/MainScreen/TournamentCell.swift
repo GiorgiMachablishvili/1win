@@ -62,15 +62,6 @@ class TournamentCell: UICollectionViewCell {
         return view
     }()
 
-    private lazy var liveButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        view.setImage(UIImage(named: "liveImage"), for: .normal)
-        view.backgroundColor = UIColor.whiteColor.withAlphaComponent(0.15)
-        view.makeRoundCorners(12)
-        view.addTarget(self, action: #selector(clickLiveButton), for: .touchUpInside)
-        return view
-    }()
-
     private lazy var goButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "goImage"), for: .normal)
@@ -122,7 +113,6 @@ class TournamentCell: UICollectionViewCell {
         tournamentInfoBackground.addSubview(tournamentsDateTitle)
         tournamentInfoBackground.addSubview(tournamentsStartDate)
         tournamentInfoBackground.addSubview(tournamentsEndDate)
-        tournamentInfoBackground.addSubview(liveButton)
         tournamentInfoBackground.addSubview(goButton)
         tournamentInfoBackground.addSubview(prizePriceView)
         prizePriceView.addSubview(prizePriceImage)
@@ -166,16 +156,9 @@ class TournamentCell: UICollectionViewCell {
             make.height.equalTo(16 * Constraint.yCoeff)
         }
 
-        liveButton.snp.remakeConstraints { make in
-            make.top.equalTo(tournamentsDateTitle.snp.bottom).offset(12 * Constraint.yCoeff)
-            make.leading.equalTo(tournamentsDateTitle.snp.leading)
-            make.height.equalTo(28 * Constraint.yCoeff)
-            make.width.equalTo(62 * Constraint.yCoeff)
-        }
-
         goButton.snp.remakeConstraints { make in
             make.top.equalTo(tournamentsDateTitle.snp.bottom).offset(12 * Constraint.yCoeff)
-            make.leading.equalTo(liveButton.snp.trailing).offset(4 * Constraint.xCoeff)
+            make.leading.equalTo(tournamentsDateTitle.snp.leading)
             make.height.equalTo(28 * Constraint.yCoeff)
             make.width.equalTo(44 * Constraint.yCoeff)
         }

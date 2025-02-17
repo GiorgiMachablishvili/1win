@@ -56,8 +56,8 @@ class TutorialController: UIViewController {
 
     func setupHierarchy() {
         collectionView.register(GameChooseCell.self, forCellWithReuseIdentifier: String(describing: GameChooseCell.self))
-//        collectionView.register(AllTrainingCell.self, forCellWithReuseIdentifier: String(describing: AllTrainingCell.self))
-//        collectionView.register(AllTrainingHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AllTrainingHeaderView.identifier)
+        collectionView.register(AllTrainingCell.self, forCellWithReuseIdentifier: String(describing: AllTrainingCell.self))
+        collectionView.register(AllTrainingHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AllTrainingHeaderView.identifier)
     }
 
     private func setup() {
@@ -88,8 +88,8 @@ class TutorialController: UIViewController {
             switch sectionIndex {
             case 0:
                 return self?.gameChooseView()
-//            case 1:
-//                return self?.allTrainingView()
+            case 1:
+                return self?.allTrainingView()
             default:
                 return self?.defaultLayout()
             }
@@ -113,43 +113,43 @@ class TutorialController: UIViewController {
         section.contentInsets = .init(
             top: 8 * Constraint.yCoeff,
             leading: 20 * Constraint.xCoeff,
-            bottom: 0 * Constraint.yCoeff,
+            bottom: 32 * Constraint.yCoeff,
             trailing: 20 * Constraint.xCoeff
         )
         return section
     }
 
-//    func allTrainingView() -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1.0),
-//            heightDimension: .absolute(85 * Constraint.yCoeff))
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//        let groupSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1.0),
-//            heightDimension: .absolute(85 * Constraint.yCoeff))
-//        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.contentInsets = .init(
-//            top: 16 * Constraint.yCoeff,
-//            leading: 20 * Constraint.xCoeff,
-//            bottom: 0 * Constraint.yCoeff,
-//            trailing: 20 * Constraint.xCoeff
-//        )
-//        let headerSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1.0),
-//            heightDimension: .absolute(25)
-//        )
-//        let header = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: headerSize,
-//            elementKind: UICollectionView.elementKindSectionHeader,
-//            alignment: .top
-//        )
-//        section.boundarySupplementaryItems = [header]
-//
-//        return section
-//    }
+    func allTrainingView() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(85 * Constraint.yCoeff))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(85 * Constraint.yCoeff))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(
+            top: 16 * Constraint.yCoeff,
+            leading: 20 * Constraint.xCoeff,
+            bottom: 0 * Constraint.yCoeff,
+            trailing: 20 * Constraint.xCoeff
+        )
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(25)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        section.boundarySupplementaryItems = [header]
+
+        return section
+    }
 
     func defaultLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
@@ -174,15 +174,15 @@ class TutorialController: UIViewController {
 
 extension TutorialController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
-//        case 1:
-//            return isSearching ? filteredTrainings.count : trainings.count
+        case 1:
+            return 1
         default:
             return 0
         }
@@ -197,30 +197,30 @@ extension TutorialController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             return cell
-//        case 1:
-//            guard let cell = collectionView.dequeueReusableCell(
-//                withReuseIdentifier: String(describing: AllTrainingCell.self),
-//                for: indexPath) as? AllTrainingCell else {
-//                return UICollectionViewCell()
-//            }
+        case 1:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: String(describing: AllTrainingCell.self),
+                for: indexPath) as? AllTrainingCell else {
+                return UICollectionViewCell()
+            }
 //            let training = isSearching ? filteredTrainings[indexPath.item] : trainings[indexPath.item]
 //            cell.configure(with: training)
-//            return cell
+            return cell
         default:
             return UICollectionViewCell()
         }
     }
 
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        guard kind == UICollectionView.elementKindSectionHeader else {
-//            return UICollectionReusableView()
-//        }
-//
-//        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,withReuseIdentifier: "AllTrainingHeaderView", for: indexPath) as? AllTrainingHeaderView else {
-//            return UICollectionReusableView()
-//        }
-//        return header
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
+
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,withReuseIdentifier: "AllTrainingHeaderView", for: indexPath) as? AllTrainingHeaderView else {
+            return UICollectionReusableView()
+        }
+        return header
+    }
 }
 
 extension TutorialController: UISearchBarDelegate {

@@ -77,6 +77,7 @@
 		E3E8CD3F2D620F45005B0FD2 /* TrainingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD3E2D620F45005B0FD2 /* TrainingResultCell.swift */; };
 		E3E8CD412D627097005B0FD2 /* GameChooseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD402D627097005B0FD2 /* GameChooseCell.swift */; };
 		E3E8CD432D627FD9005B0FD2 /* GameButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD422D627FD9005B0FD2 /* GameButtonCell.swift */; };
+		E3E8CD452D633525005B0FD2 /* TutorialCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +146,7 @@
 		E3E8CD3E2D620F45005B0FD2 /* TrainingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultCell.swift; sourceTree = "<group>"; };
 		E3E8CD402D627097005B0FD2 /* GameChooseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameChooseCell.swift; sourceTree = "<group>"; };
 		E3E8CD422D627FD9005B0FD2 /* GameButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonCell.swift; sourceTree = "<group>"; };
+		E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				E3E8CCE62D57ECCB005B0FD2 /* BenefitsView.swift */,
 				E3E8CCE82D57EF9F005B0FD2 /* CustomLabelView.swift */,
+				E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */,
 				E3E8CCFF2D5A7973005B0FD2 /* AttributedStringView.swift */,
 				E3E8CD212D5E1E7E005B0FD2 /* QuizView.swift */,
 				E3E8CD252D5F6CAB005B0FD2 /* QuizResultView.swift */,
@@ -506,6 +509,7 @@
 				E3E8CD352D6141AB005B0FD2 /* TrainingModelLoL.swift in Sources */,
 				E3E8CD172D5D11FE005B0FD2 /* CurrentTrainingCell.swift in Sources */,
 				E3E8CD332D613162005B0FD2 /* TrainingModel.swift in Sources */,
+				E3E8CD452D633525005B0FD2 /* TutorialCountView.swift in Sources */,
 				E3E8CD242D5E6B83005B0FD2 /* QuizCSQuestion.swift in Sources */,
 				E3E8CCED2D590BE8005B0FD2 /* TrainingMaterialsView.swift in Sources */,
 				E3E8CCC22D57D60F005B0FD2 /* UIColor+Extension.swift in Sources */,

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "dota2BlueImage.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
