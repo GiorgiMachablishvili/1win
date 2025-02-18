@@ -11,7 +11,7 @@ class GameChooseCell: UICollectionViewCell {
 
     private let gameTitles = ["All", "CS:GO", "Dota 2", "LoL", "Valorant"]
 
-    private var selectedIndex: Int? = nil
+    private var selectedIndex: Int? = 0
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

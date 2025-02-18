@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class CreateAndDeleteCell: UICollectionViewCell {
+
+    var didPressSighInButton: (() -> Void)?
+    var didPressDeleteButton: (() -> Void)?
+
     private lazy var signInWithAppleButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setTitle("Sign in with apple", for: .normal)
@@ -71,10 +75,10 @@ class CreateAndDeleteCell: UICollectionViewCell {
     }
 
     @objc private func clickSignInWithAppleButton() {
-
+        didPressSighInButton?()
     }
 
     @objc private func clickDeleteButton() {
-
+        didPressDeleteButton?()
     }
 }
