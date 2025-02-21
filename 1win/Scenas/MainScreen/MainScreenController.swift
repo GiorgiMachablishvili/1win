@@ -106,8 +106,9 @@ class MainScreenController: UIViewController {
     }
 
     private func moveToGameView(gameType: String) {
-        let csGameVC = GameController(gameType: gameType)
-        navigationController?.pushViewController(csGameVC, animated: true)
+        let gameVC = GameController(gameType: gameType)
+        gameVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(gameVC, animated: true)
     }
 
     @objc private func clickSeeAllButton() {

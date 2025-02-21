@@ -25,12 +25,34 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
         return view
     }()
 
+    private lazy var backgroundProfileView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .clear.withAlphaComponent(0.5)
+        view.isHidden = true
+        return view
+    }()
+
     private lazy var achievementView: AchievementsView = {
         let view = AchievementsView()
         view.didPressCancelButton = { [weak self] in
             self?.hideAchievementView()
         }
         view.isHidden = true
+        return view
+    }()
+
+
+    private lazy var profileView: EditProfileView = {
+        let view = EditProfileView()
+        view.makeRoundCorners(20)
+        view.backgroundColor = .pointViewColor
+        view.isHidden = true
+        view.didPressSaveButton = { [weak self] in
+            self?.updateUserInfo()
+        }
+        view.didPressCancelButton = { [weak self] in
+            self?.hideView()
+        }
         return view
     }()
 
@@ -51,7 +73,9 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     private func setup() {
         view.addSubview(collectionView)
-        view.addSubview(achievementView)
+        view.addSubview(backgroundProfileView)
+        backgroundProfileView.addSubview(achievementView)
+        backgroundProfileView.addSubview(profileView)
     }
 
     private func setupConstraints() {
@@ -60,13 +84,75 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
 
         achievementView.snp.remakeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.snp.bottom).offset(80 * Constraint.yCoeff)
+            make.height.equalTo(478 * Constraint.yCoeff)
+        }
+
+        backgroundProfileView.snp.remakeConstraints { make in
             make.edges.equalToSuperview()
+        }
+
+        profileView.snp.remakeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.snp.bottom).offset(80 * Constraint.yCoeff)
+            make.height.equalTo(478 * Constraint.yCoeff)
         }
     }
 
     private func hideAchievementView() {
+        backgroundProfileView.isHidden = true
         achievementView.isHidden = true
         tabBarController?.tabBar.isHidden = false
+    }
+
+    @objc private func updateUserInfo() {
+        //TODO: uncomment when connect with back
+//        guard let userId = UserDefaults.standard.value(forKey: "userId") as? Int else {
+//            print("userId not found or not an Int")
+//            return
+//        }
+//        // Get the selected image and nickname from the profile view
+//        let selectedImage = profileView.selectedImage
+//        let nickname = profileView.nicknameTextField.text
+//
+//        // Show loading indicator
+//        NetworkManager.shared.showProgressHud(true, animated: true)
+//
+//        // Send the PATCH request
+//        NetworkManager.shared.updateUserProfile(userId: userId, image: selectedImage, nickname: nickname) { [weak self] result in
+//            guard let self = self else { return }
+//
+//            DispatchQueue.main.async {
+//                NetworkManager.shared.showProgressHud(false, animated: false)
+//            }
+//
+//            switch result {
+//            case .success(let userData):
+//                // Update the UI with the new user data
+//                self.userData = userData
+//                DispatchQueue.main.async {
+//                    self.hideView() // Hide the edit profile view
+//                    self.collectionView.reloadData()
+//                }
+//            case .failure(let error):
+//                print("Failed to update user profile: \(error)")
+//                // Show an error message to the user
+//                self.showAlert(title: "Error", message: "Failed to update profile. Please try again.")
+//            }
+//        }
+    }
+
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+
+    @objc private func hideView() {
+        backgroundProfileView.isHidden = true
+        profileView.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     func configureCompositionLayout() {
@@ -346,12 +432,15 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
                 for: indexPath) as? ChangeImageCell else {
                 return UICollectionViewCell()
             }
-            if let selectedImage = selectedImage {
-                cell.updateProfileImage(image: selectedImage)
-            }
+            cell.didPressEditProfileButton = { [weak self] image in
+                guard let self = self else { return }
+                self.backgroundProfileView.isHidden = false
+                self.profileView.isHidden = false
+                self.tabBarController?.tabBar.isHidden = true
 
-            cell.pressChangeImageButton = { [weak self] in
-                self?.showImagePickerOptions()
+                // Pass the image to EditProfileView
+                self.profileView.workoutImage.image = image
+                self.profileView.selectedImage = image
             }
             return cell
         case 1:
@@ -361,7 +450,9 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
                 return UICollectionViewCell()
             }
             cell.didSelectAchievement = { [weak self] title, imageName, description in
-                self?.showAchievementDetail(title: title, imageName: imageName, description: description)
+                guard let self = self else { return }
+                self.showAchievementDetail(title: title, imageName: imageName, description: description)
+                self.tabBarController?.tabBar.isHidden = true
             }
             return cell
         case 2:
@@ -388,9 +479,8 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
     private func showAchievementDetail(title: String, imageName: String, description: String) {
         achievementView.setAchievementDetails(title: title, imageName: imageName, description: description)
         achievementView.isHidden = false
-        tabBarController?.tabBar.isHidden = true
+        backgroundProfileView.isHidden = false
     }
-
 
     private func showImagePickerOptions() {
             let alertController = UIAlertController(title: "Select Profile Picture", message: nil, preferredStyle: .actionSheet)

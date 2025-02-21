@@ -91,6 +91,7 @@ class GameController: UIViewController {
 
     @objc private func pressBackButton() {
         navigationController?.popViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     func configureCompositionLayout() {

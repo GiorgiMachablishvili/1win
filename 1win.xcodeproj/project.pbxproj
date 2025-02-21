@@ -80,6 +80,7 @@
 		E3E8CD452D633525005B0FD2 /* TutorialCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */; };
 		E3E8CD472D63B3C4005B0FD2 /* AchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD462D63B3C4005B0FD2 /* AchievementsCell.swift */; };
 		E3E8CD492D63B9FC005B0FD2 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD482D63B9FC005B0FD2 /* AchievementsView.swift */; };
+		E3E8CD4B2D68DC69005B0FD2 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8CD4A2D68DC69005B0FD2 /* EditProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		E3E8CD442D633525005B0FD2 /* TutorialCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCountView.swift; sourceTree = "<group>"; };
 		E3E8CD462D63B3C4005B0FD2 /* AchievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCell.swift; sourceTree = "<group>"; };
 		E3E8CD482D63B9FC005B0FD2 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		E3E8CD4A2D68DC69005B0FD2 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 			children = (
 				E3E8CCDA2D57E1AB005B0FD2 /* ProfileController.swift */,
 				E3E8CCEE2D592D29005B0FD2 /* ChangeImageCell.swift */,
+				E3E8CD4A2D68DC69005B0FD2 /* EditProfileView.swift */,
 				E3E8CD462D63B3C4005B0FD2 /* AchievementsCell.swift */,
 				E3E8CCF02D59314D005B0FD2 /* LinksCell.swift */,
 				E3E8CCF22D594540005B0FD2 /* CreateAndDeleteCell.swift */,
@@ -492,6 +495,7 @@
 				E3E8CCC42D57D62C005B0FD2 /* UIFont+Extension.swift in Sources */,
 				E3E8CD3F2D620F45005B0FD2 /* TrainingResultCell.swift in Sources */,
 				E3E8CCAB2D57D4DC005B0FD2 /* NetworkManager.swift in Sources */,
+				E3E8CD4B2D68DC69005B0FD2 /* EditProfileView.swift in Sources */,
 				E3E8CCCF2D57DAF4005B0FD2 /* UserCreate.swift in Sources */,
 				E3E8CCEF2D592D29005B0FD2 /* ChangeImageCell.swift in Sources */,
 				E3E8CD132D5C96AA005B0FD2 /* AllTrainingHeaderView.swift in Sources */,

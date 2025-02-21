@@ -132,10 +132,8 @@ class CurrentTrainingController: UIViewController {
             selectedQuizData = quizCSData
         }
 
-        // Get a new random set of 5 questions
         let randomQuestions = Array(selectedQuizData.shuffled().prefix(5))
 
-        // Configure quizView with new questions before hiding
         quizView.configure(with: randomQuestions)
 
         quizView.isHidden = true
@@ -162,7 +160,6 @@ class CurrentTrainingController: UIViewController {
         default:
             trainingResultVC.trainings = []
         }
-
         navigationController?.pushViewController(trainingResultVC, animated: true)
     }
 }

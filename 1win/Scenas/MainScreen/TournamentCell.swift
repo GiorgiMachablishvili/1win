@@ -62,12 +62,11 @@ class TournamentCell: UICollectionViewCell {
         return view
     }()
 
-    private lazy var goButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        view.setImage(UIImage(named: "goImage"), for: .normal)
+    private lazy var goButton: UIImageView = {
+        let view = UIImageView(frame: .zero)
+        view.image = UIImage(named: "goImage")
         view.backgroundColor = UIColor.whiteColor.withAlphaComponent(0.15)
         view.makeRoundCorners(12)
-        view.addTarget(self, action: #selector(clickLiveButton), for: .touchUpInside)
         return view
     }()
 
@@ -181,10 +180,6 @@ class TournamentCell: UICollectionViewCell {
             make.leading.equalTo(prizePriceImage.snp.trailing).offset(4 * Constraint.xCoeff)
             make.height.equalTo(12 * Constraint.xCoeff)
         }
-    }
-
-    @objc private func clickLiveButton() {
-
     }
 
     func configure(with data: TournamentDetailsInfo) {

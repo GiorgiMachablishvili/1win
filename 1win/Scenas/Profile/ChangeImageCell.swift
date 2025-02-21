@@ -10,7 +10,8 @@ import SnapKit
 
 class ChangeImageCell: UICollectionViewCell {
 
-    var pressChangeImageButton: (() -> Void)?
+//    var pressChangeImageButton: (() -> Void)?
+    var didPressEditProfileButton: ((UIImage?) -> Void)?
 
     private lazy var changeImageButton: UIButton = {
         let view = UIButton(frame: .zero)
@@ -62,10 +63,10 @@ class ChangeImageCell: UICollectionViewCell {
     }
 
     @objc private func clickChangeImageButton() {
-        pressChangeImageButton?()
+        didPressEditProfileButton?(changeImageButton.image(for: .normal))
     }
 
     func updateProfileImage(image: UIImage) {
-        changeImageButton.setImage(image, for: .normal)
+//        changeImageButton.setImage(image, for: .normal)
     }
 }
