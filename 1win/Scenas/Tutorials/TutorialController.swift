@@ -12,6 +12,7 @@ class TutorialController: UIViewController {
 
     private var filteredTrainings: [TrainingModel] = []
     private var isSearching = false
+
     private var trainings: [TrainingModel] = []
 
 
@@ -42,13 +43,14 @@ class TutorialController: UIViewController {
         return view
     }()
 
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#1E1D23")
         setup()
         setupConstraints()
+
+        loadTrainings(game: "All")
 
         setupHierarchy()
         configureCompositionLayout()
@@ -80,6 +82,22 @@ class TutorialController: UIViewController {
 
     @objc private func pressBackButton() {
         navigationController?.popViewController(animated: true)
+    }
+
+    private func loadTrainings(game: String) {
+        switch game {
+        case "CS:GO":
+            trainings = trainingsCS
+        case "Dota 2":
+            trainings = trainingsDota2
+        case "LoL":
+            trainings = trainingsLoL
+        case "Valorant":
+            trainings = trainingsValorant
+        default:
+            trainings = trainingsCS + trainingsDota2 + trainingsLoL + trainingsValorant
+        }
+        collectionView.reloadData()
     }
 
     func configureCompositionLayout() {
@@ -182,7 +200,7 @@ extension TutorialController: UICollectionViewDelegate, UICollectionViewDataSour
         case 0:
             return 1
         case 1:
-            return 1
+            return isSearching ? filteredTrainings.count : trainings.count
         default:
             return 0
         }
@@ -196,6 +214,9 @@ extension TutorialController: UICollectionViewDelegate, UICollectionViewDataSour
                 for: indexPath) as? GameChooseCell else {
                 return UICollectionViewCell()
             }
+            cell.didSelectGame = { [weak self] selectedGame in
+                self?.loadTrainings(game: selectedGame)
+            }
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(
@@ -203,8 +224,8 @@ extension TutorialController: UICollectionViewDelegate, UICollectionViewDataSour
                 for: indexPath) as? AllTrainingCell else {
                 return UICollectionViewCell()
             }
-//            let training = isSearching ? filteredTrainings[indexPath.item] : trainings[indexPath.item]
-//            cell.configure(with: training)
+            let training = isSearching ? filteredTrainings[indexPath.item] : trainings[indexPath.item]
+            cell.configure(with: training)
             return cell
         default:
             return UICollectionViewCell()

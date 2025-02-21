@@ -11,7 +11,9 @@ import AuthenticationServices
 import Alamofire
 import ProgressHUD
 
-class ProfileController: UIViewController {
+class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    private var selectedImage: UIImage?
 
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -36,7 +38,6 @@ class ProfileController: UIViewController {
         super.viewDidLoad()
         setup()
         setupConstraints()
-
         setupHierarchy()
         configureCompositionLayout()
     }
@@ -345,6 +346,13 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
                 for: indexPath) as? ChangeImageCell else {
                 return UICollectionViewCell()
             }
+            if let selectedImage = selectedImage {
+                cell.updateProfileImage(image: selectedImage)
+            }
+
+            cell.pressChangeImageButton = { [weak self] in
+                self?.showImagePickerOptions()
+            }
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(
@@ -372,8 +380,6 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
             cell.didPressSighInButton = { [weak self] in
                 self?.signInButton()
             }
-
-
             return cell
         default:
             return UICollectionViewCell()
@@ -384,4 +390,51 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
         achievementView.isHidden = false
         tabBarController?.tabBar.isHidden = true
     }
+
+
+    private func showImagePickerOptions() {
+            let alertController = UIAlertController(title: "Select Profile Picture", message: nil, preferredStyle: .actionSheet)
+
+            alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
+                self?.openImagePicker(sourceType: .camera)
+            }))
+
+            alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { [weak self] _ in
+                self?.openImagePicker(sourceType: .photoLibrary)
+            }))
+
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+            present(alertController, animated: true)
+        }
+
+        /// Opens the image picker with the specified source type
+        private func openImagePicker(sourceType: UIImagePickerController.SourceType) {
+            guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
+                print("Source type not available")
+                return
+            }
+
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = sourceType
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true)
+        }
+
+        /// Handles selected image from the picker
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let editedImage = info[.editedImage] as? UIImage {
+                selectedImage = editedImage
+            } else if let originalImage = info[.originalImage] as? UIImage {
+                selectedImage = originalImage
+            }
+
+            collectionView.reloadData()
+            picker.dismiss(animated: true)
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true)
+        }
 }

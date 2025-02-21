@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class TutorialCountView: UIView {
-
     private var tournamentInfoBackground: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = UIColor.signInButtonBackgroundColor

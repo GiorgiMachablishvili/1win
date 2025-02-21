@@ -10,6 +10,8 @@ import SnapKit
 
 class ChangeImageCell: UICollectionViewCell {
 
+    var pressChangeImageButton: (() -> Void)?
+
     private lazy var changeImageButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "changeImage"), for: .normal)
@@ -60,7 +62,10 @@ class ChangeImageCell: UICollectionViewCell {
     }
 
     @objc private func clickChangeImageButton() {
-
+        pressChangeImageButton?()
     }
 
+    func updateProfileImage(image: UIImage) {
+        changeImageButton.setImage(image, for: .normal)
+    }
 }

@@ -13,6 +13,8 @@ class GameChooseCell: UICollectionViewCell {
 
     private var selectedIndex: Int? = 0
 
+    var didSelectGame: ((String) -> Void)?
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -64,8 +66,8 @@ extension GameChooseCell: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.buttonTapAction = { [weak self] in
             self?.selectedIndex = indexPath.item
             self?.collectionView.reloadData()
+            self?.didSelectGame?(title)
         }
-
         return cell
     }
 

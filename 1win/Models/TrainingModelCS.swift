@@ -43,4 +43,4 @@ let trainingsCS: [TrainingModelCS] = [
         steps: "1.Set Up for the Fake: Three Ts position themselves near B Apartments, while two stay near A Ramp and Palace. \n 2.B Fake Begins: The B players throw deep smokes (Market and Short) and Molotovs to create pressure. \n 3.Commit to the Fake: One or two Ts jump down from Apartments and start engaging defenders, throwing flashes and shooting aggressively. \n 4.Lurker Stays on B: One T remains near B Apartments to delay CT rotations. \n 5.A Execution Starts: While the B fake is happening, the A players execute onto A, throwing smokes (Jungle, CT, Stairs) and flashing into the site. \n 6.Plant the Bomb at A: Secure the site and get the bomb down in a strong post-plant position. \n 7.Hold A Defensively: Take control of Jungle, CT, and Ramp while the last player on B rotates back through Mid or T-Spawn.",
         advantage: "Forces multiple CTs to rotate off A, making the execution easier. \n Provides a strong post-plant scenario with good map control. \n Hard to counter unless CTs play very disciplined and don't over-rotate."
     )
-    ]
+]

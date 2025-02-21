@@ -10,6 +10,8 @@ import SnapKit
 
 class GameButtonCell: UICollectionViewCell {
 
+    var buttonTapAction: (() -> Void)?
+
     private lazy var button: UIButton = {
         let view = UIButton(frame: .zero)
         view.setTitleColor(UIColor.whiteColor.withAlphaComponent(0.7), for: .normal)
@@ -21,8 +23,6 @@ class GameButtonCell: UICollectionViewCell {
         view.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return view
     }()
-
-    var buttonTapAction: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
