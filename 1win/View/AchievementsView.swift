@@ -29,7 +29,7 @@ class AchievementsView: UIView {
         let view = UILabel(frame: .zero)
         view.text = "Achievements"
         view.textColor = UIColor.whiteColor
-        view.font = UIFont.goldmanBold(size: 12)
+        view.font = UIFont.goldmanBold(size: 16)
         view.textAlignment = .left
         return view
     }()
