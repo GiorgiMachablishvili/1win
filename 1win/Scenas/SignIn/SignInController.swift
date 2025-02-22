@@ -14,7 +14,7 @@ import ProgressHUD
 class SignInController: UIViewController {
     private lazy var mainImageConsole: UIImageView = {
         let view = UIImageView(frame: .zero)
-        view.image = UIImage(named: "signinViewImage")
+        view.image = UIImage(named: "Back")
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -148,11 +148,7 @@ class SignInController: UIViewController {
 
     private func setupConstraints() {
         mainImageConsole.snp.remakeConstraints { make in
-            //            make.top.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.snp.top).offset(-20)
-            make.leading.equalTo(view.snp.leading).offset(-20)
-            make.trailing.equalTo(view.snp.trailing).offset(20)
-            make.height.equalTo(380 * Constraint.yCoeff)
+            make.edges.equalToSuperview()
         }
 
         wImage.snp.remakeConstraints { make in
