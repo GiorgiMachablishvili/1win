@@ -72,6 +72,10 @@ extension TrainingResultController: UICollectionViewDataSource, UICollectionView
         cell.didPressBackButton = { [weak self] in
             self?.goGameControllerView()
         }
+
+        cell.didPressGoToTestingButton = { [weak self] in
+            self?.goGameControllerView()
+        }
         return cell
     }
 }

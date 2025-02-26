@@ -252,7 +252,7 @@ class QuizView: UIView {
         if answerText == question.correctAnswer {
             score += 1
         }
-
+        //TODO: press next button should move currentQuestionIndex point
         currentQuestionIndex += 1
         showQuestion()
     }
@@ -261,6 +261,7 @@ class QuizView: UIView {
         didFinishQuiz?(score, questions.count)
     }
 
+    //TODO: press close button and enter again should show new questions
     @objc private func closeButtonPressed() {
 //        resetQuiz()
         didPressCloseButton?()

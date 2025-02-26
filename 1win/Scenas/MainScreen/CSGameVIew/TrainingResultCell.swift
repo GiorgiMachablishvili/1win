@@ -103,16 +103,6 @@ class TrainingResultCell: UICollectionViewCell {
         return view
     }()
 
-    private lazy var goToTestingButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        view.setTitle("Go to testing", for: .normal)
-        view.backgroundColor = UIColor.signInButtonBackgroundColor
-        view.titleLabel?.font = UIFont.goldmanBold(size: 16)
-        view.makeRoundCorners(20)
-        view.addTarget(self, action: #selector(clickGoToTestingButton), for: .touchUpInside)
-        return view
-    }()
-
     private lazy var resultPercentageBackgroundView: UIView = {
         let view = UIView(frame: .zero)
         view.makeRoundCorners(16)
@@ -146,6 +136,16 @@ class TrainingResultCell: UICollectionViewCell {
         view.textColor = UIColor(hexString: "#267DFF")
         view.font = UIFont.goldmanBold(size: 24)
         view.textAlignment = .center
+        return view
+    }()
+
+    private lazy var goToTestingButton: UIButton = {
+        let view = UIButton(frame: .zero)
+        view.setTitle("Go to testing", for: .normal)
+        view.backgroundColor = UIColor.signInButtonBackgroundColor
+        view.titleLabel?.font = UIFont.goldmanBold(size: 16)
+        view.makeRoundCorners(20)
+        view.addTarget(self, action: #selector(clickGoToTestingButton), for: .touchUpInside)
         return view
     }()
 
