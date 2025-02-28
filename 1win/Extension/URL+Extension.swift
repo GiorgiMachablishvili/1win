@@ -10,19 +10,19 @@ import Foundation
 
 extension String {
     static func userCreate() -> String {
-        return "https://stake-us-66f6608d21e4.herokuapp.com/users/register"
+        return "https://luckyland-giorgi-c118577c5e05.herokuapp.com/api/v1/users/"
     }
 
     static func bonusTimer() -> String {
-        return "https://stake-us-66f6608d21e4.herokuapp.com/bonus/next"
+        return ""
     }
 
     static func dailyBonusPost(userId: Int) -> String {
-        return "https://stake-us-66f6608d21e4.herokuapp.com/bonus/give/\(userId)"
+        return "\(userId)"
     }
 
     static func userDataResponse(userId: Int) -> String {
-        return "https://stake-us-66f6608d21e4.herokuapp.com/users/\(userId)"
+        return "/\(userId)"
     }
 
     static func leaderBoard() -> String {

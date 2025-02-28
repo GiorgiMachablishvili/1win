@@ -228,6 +228,53 @@ class SignInController: UIViewController {
         //        navigationController?.pushViewController(mainView, animated: true)
     }
 
+//    private func createUser() {
+//        NetworkManager.shared.showProgressHud(true, animated: true)
+//
+//        let pushToken = UserDefaults.standard.string(forKey: "PushToken") ?? ""
+//        let appleToken = UserDefaults.standard.string(forKey: "AccountCredential") ?? ""
+//
+//        // Prepare parameters
+//        let parameters: [String: Any] = [
+//            "push_token": pushToken,
+//            "auth_token": appleToken,
+//        ]
+//
+//        // Make the network request
+//        NetworkManager.shared.post(
+//            url: String.userCreate(),
+//            parameters: parameters,
+//            headers: nil
+//        ) { [weak self] (result: Result<UserCreate>) in
+//            guard let self = self else { return }
+//
+//            DispatchQueue.main.async {
+//                NetworkManager.shared.showProgressHud(false, animated: false)
+//                UserDefaults.standard.setValue(false, forKey: "isGuestUser")
+//            }
+//            print("\(parameters)")
+//            switch result {
+//            case .success(let userInfo):
+//                DispatchQueue.main.async {
+//                    print("User created: \(userInfo)")
+//                    UserDefaults.standard.setValue(userInfo.id, forKey: "userId")
+//                    print("Received User ID: \(userInfo.id)")
+//
+//                    if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+//                        let mainViewTabBarController = MainViewControllerTab()
+//                        navigationController?.pushViewController(mainViewTabBarController, animated: true)
+//                        sceneDelegate.changeRootViewController(navigationController!)
+//                    }
+//                }
+//            case .failure(let error):
+//                DispatchQueue.main.async {
+//                    self.showAlert(title: "Error", description: error.localizedDescription)
+//                }
+//                print("Error: \(error)")
+//            }
+//        }
+//    }
+
     private func createUser() {
         NetworkManager.shared.showProgressHud(true, animated: true)
 
@@ -237,7 +284,7 @@ class SignInController: UIViewController {
         // Prepare parameters
         let parameters: [String: Any] = [
             "push_token": pushToken,
-            "apple_token": appleToken,
+            "auth_token": appleToken,
         ]
 
         // Make the network request
@@ -245,8 +292,8 @@ class SignInController: UIViewController {
             url: String.userCreate(),
             parameters: parameters,
             headers: nil
-        ) { [weak self] (result: Result<UserCreate>) in
-            guard let self = self else { return }
+        ) { [weak self] (result: Result<UserCreate>) in  // 👈 Capturing 'self' weakly
+            guard let self = self else { return }  // 👈 Unwrapping self safely
 
             DispatchQueue.main.async {
                 NetworkManager.shared.showProgressHud(false, animated: false)
@@ -261,9 +308,9 @@ class SignInController: UIViewController {
                     print("Received User ID: \(userInfo.id)")
 
                     if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                        let mainViewController = MainScreenController()
-                        let navigationController = UINavigationController(rootViewController: mainViewController)
-                        sceneDelegate.changeRootViewController(navigationController)
+                        let mainViewTabBarController = MainViewControllerTab()
+                        self.navigationController?.pushViewController(mainViewTabBarController, animated: true)
+                        sceneDelegate.changeRootViewController(self.navigationController!)
                     }
                 }
             case .failure(let error):
@@ -274,6 +321,7 @@ class SignInController: UIViewController {
             }
         }
     }
+
 
     private func showAlert(title: String, description: String) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
@@ -346,5 +394,4 @@ extension SignInController: UITextViewDelegate {
     private func openTermsOfUse() {
         print("Terms of Use Clicked")
     }
-
 }
