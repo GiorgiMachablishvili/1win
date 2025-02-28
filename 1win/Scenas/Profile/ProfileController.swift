@@ -10,6 +10,7 @@ import SnapKit
 import AuthenticationServices
 import Alamofire
 import ProgressHUD
+import StoreKit
 
 class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -104,6 +105,37 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
         backgroundProfileView.isHidden = true
         achievementView.isHidden = true
         tabBarController?.tabBar.isHidden = false
+    }
+
+    //TODO: add links
+    private func securityPolisy() {
+        let termsURL = ""
+        let webViewController = WebViewController(urlString: termsURL)
+        navigationController?.present(webViewController, animated: true)
+    }
+
+    private func shareApp() {
+        let termsURL = ""
+        let webViewController = WebViewController(urlString: termsURL)
+        navigationController?.present(webViewController, animated: true)
+    }
+
+    private func conditionsOfUse() {
+        let termsURL = ""
+        let webViewController = WebViewController(urlString: termsURL)
+        navigationController?.present(webViewController, animated: true)
+    }
+
+    private func privacyPolicy() {
+        let termsURL = ""
+        let webViewController = WebViewController(urlString: termsURL)
+        navigationController?.present(webViewController, animated: true)
+    }
+
+    private func rateApp() {
+        if let windowScene = view.window?.windowScene {
+            SKStoreReviewController.requestReview(in: windowScene)
+        }
     }
 
     @objc private func updateUserInfo() {
@@ -460,6 +492,21 @@ extension ProfileController: UICollectionViewDelegate, UICollectionViewDataSourc
                 withReuseIdentifier: String(describing: LinksCell.self),
                 for: indexPath) as? LinksCell else {
                 return UICollectionViewCell()
+            }
+            cell.didSecurityPolicyButtonButton = { [weak self] in
+                self?.securityPolisy()
+            }
+            cell.didShareAppTappedButton = { [weak self] in
+                self?.shareApp()
+            }
+            cell.didConditionsOfUseButton = { [weak self] in
+                self?.conditionsOfUse()
+            }
+            cell.didPrivacyPolicyButton = { [weak self] in
+                self?.privacyPolicy()
+            }
+            cell.didPressRateButton = { [weak self] in
+                self?.rateApp()
             }
             return cell
         case 3:

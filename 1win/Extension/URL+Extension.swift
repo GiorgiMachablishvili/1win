@@ -13,8 +13,8 @@ extension String {
         return "https://luckyland-giorgi-c118577c5e05.herokuapp.com/api/v1/users/"
     }
 
-    static func bonusTimer() -> String {
-        return ""
+    static func voteGames() -> String {
+        return "https://luckyland-giorgi-c118577c5e05.herokuapp.com/api/v1/tournaments/vote"
     }
 
     static func dailyBonusPost(userId: Int) -> String {

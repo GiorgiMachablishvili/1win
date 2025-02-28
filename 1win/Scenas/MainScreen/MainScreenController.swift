@@ -132,6 +132,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedTournament = tournamentsData[indexPath.item]
         let detailsView = TournamentDetailsView()
+        detailsView.hidesBottomBarWhenPushed = true
 //        detailsView.configure(with: selectedTournament)
         navigationController?.pushViewController(detailsView, animated: true)
     }

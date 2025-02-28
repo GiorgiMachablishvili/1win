@@ -25,6 +25,9 @@ class TournamentDetailsView: UIViewController {
         view.isHidden = true
         view.makeRoundCorners(32)
         view.backgroundColor = UIColor.viewBackgroundColor
+        view.didiPressVoteButton = { [weak self] in
+            self?.gameVote()
+        }
         view.didPressCloseButton = { [weak self] in
             self?.hideSelectTheCommandView()
         }
@@ -172,6 +175,10 @@ class TournamentDetailsView: UIViewController {
         viewVC.hidesBottomBarWhenPushed = true
     }
 
+    private func gameVote() {
+
+    }
+
     private func hideSelectTheCommandView() {
         selectTheCommand.isHidden = true
         self.hidesBottomBarWhenPushed = false
@@ -180,7 +187,6 @@ class TournamentDetailsView: UIViewController {
     private func goBackPage() {
         navigationController?.popViewController(animated: true)
     }
-
 }
 
 
@@ -238,6 +244,4 @@ extension TournamentDetailsView: UICollectionViewDelegate, UICollectionViewDataS
             return UICollectionViewCell()
         }
     }
-
-    
 }

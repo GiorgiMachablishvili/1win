@@ -17,7 +17,7 @@ class MainViewControllerTab: UITabBarController,  UITabBarControllerDelegate {
         navigationItem.hidesBackButton = true
         // Instantiate the three view controllers
         let mainVC = MainScreenController()
-        let historyVC = TutorialController()
+        let historyVC = TutorialController(gameType: "")
         let profileVC = ProfileController()
 
         // Create Navigation Controllers for each (optional for navigation stack)

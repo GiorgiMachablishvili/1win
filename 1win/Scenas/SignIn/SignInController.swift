@@ -292,8 +292,8 @@ class SignInController: UIViewController {
             url: String.userCreate(),
             parameters: parameters,
             headers: nil
-        ) { [weak self] (result: Result<UserCreate>) in  // 👈 Capturing 'self' weakly
-            guard let self = self else { return }  // 👈 Unwrapping self safely
+        ) { [weak self] (result: Result<UserCreate>) in 
+            guard let self = self else { return }
 
             DispatchQueue.main.async {
                 NetworkManager.shared.showProgressHud(false, animated: false)

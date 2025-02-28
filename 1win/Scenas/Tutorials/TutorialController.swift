@@ -15,7 +15,17 @@ class TutorialController: UIViewController {
 
     private var trainings: [TrainingModel] = []
 
-
+    private var gameType: String
+    init(gameType: String) {
+        self.gameType = gameType
+        super.init(nibName: nil, bundle: nil)
+        setupTrainingData()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     lazy var searchBarView: UISearchBar = {
         let view = UISearchBar(frame: .zero)
         view.placeholder = "Search..."
@@ -43,6 +53,17 @@ class TutorialController: UIViewController {
         return view
     }()
 
+    private func setupTrainingData() {
+        if gameType == "CS" {
+            trainings = trainingsCS
+        } else if gameType == "Dota2" {
+            trainings = trainingsDota2.map { $0 as TrainingModel }
+        } else if gameType == "LOL" {
+            trainings = trainingsLoL.map { $0 as TrainingModel }
+        } else if gameType == "Valorant" {
+            trainings = trainingsValorant.map { $0 as TrainingModel }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -241,6 +262,34 @@ extension TutorialController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionReusableView()
         }
         return header
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        self.hidesBottomBarWhenPushed = true
+
+        if indexPath.section == 1 {
+            let selectedTraining: TrainingModel = isSearching ? filteredTrainings[indexPath.item] : trainings[indexPath.item]
+
+            // ✅ Select the correct quiz dataset based on the game type
+            let selectedQuizData: [QuizQuestion]
+            switch gameType {
+            case "Dota2":
+                selectedQuizData = quizDota2Data
+            case "LOL":
+                selectedQuizData = quizLoLData
+            case "Valorant":
+                selectedQuizData = quizValorantData
+            default:
+                selectedQuizData = quizCSData
+            }
+
+            // ✅ Shuffle and take 5 random questions
+            let randomQuestions = Array(selectedQuizData.shuffled().prefix(5))
+
+            // ✅ Show the quiz view with selected questions
+            let currentTrainingVC = CurrentTrainingController(training: selectedTraining, questions: randomQuestions, gameType: gameType)
+            navigationController?.pushViewController(currentTrainingVC, animated: true)
+        }
     }
 }
 

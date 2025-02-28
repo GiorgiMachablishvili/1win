@@ -6,9 +6,11 @@
 //
 //
 
-
 import UIKit
 import SnapKit
+import AuthenticationServices
+import Alamofire
+import ProgressHUD
 
 class SelectTheCommand: UIView {
 
@@ -218,9 +220,78 @@ class SelectTheCommand: UIView {
         }
     }
 
+//    @objc private func voteButtonPressed() {
+//        didiPressVoteButton?()
+//    }
+
+    //TODO: change userId Int in String in backend
+    //TODO: what is tournamentId
+
     @objc private func voteButtonPressed() {
-        didiPressVoteButton?()
+        guard let selectedTeamIndex = selectedTeamIndex else {
+            print("No team selected!")
+            return
+        }
+
+//        let selectedTeam = teams[selectedTeamIndex]
+
+        guard let userId = UserDefaults.standard.value(forKey: "userId") as? String else {
+            print("userId not found or not an Int")
+            return
+        }
+
+        let tournamentId = 1  // TODO: Fetch actual tournament ID dynamically
+
+
+        let teamId = selectedTeamIndex + 1
+
+
+        let parameters: [String: Any] = [
+            "user_id": userId,
+            "tournament_id": tournamentId,
+            "team_id": teamId
+        ]
+
+        print("Sending vote request:", parameters)
+
+        let url = String.voteGames()
+        NetworkManager.shared.showProgressHud(true, animated: true)
+        NetworkManager.shared.post(url: url,
+                                   parameters: parameters,
+                                   headers: nil) { [weak self] (result: Result<VoteGames>) in
+            guard let self = self else { return }
+
+            DispatchQueue.main.async {
+                NetworkManager.shared.showProgressHud(false, animated: false)
+            }
+
+            switch result {
+            case .success:
+                print("Vote submitted successfully!")
+
+                DispatchQueue.main.async {
+                    self.voteButton.setTitle("Voted", for: .normal)
+                    self.voteButton.backgroundColor = UIColor.green
+                    self.voteButton.isUserInteractionEnabled = false
+                    self.didPressCloseButton?()
+                }
+
+            case .failure(let error):
+                print("Vote submission failed:", error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.showErrorAlert()
+                }
+            }
+        }
     }
+
+    // Show error if API request fails
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "Error", message: "Failed to vote. Please try again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+    }
+
 
     @objc private func closeButtonPressed() {
         didPressCloseButton?()

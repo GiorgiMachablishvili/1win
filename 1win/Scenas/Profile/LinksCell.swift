@@ -10,6 +10,12 @@ import SnapKit
 
 class LinksCell: UICollectionViewCell {
 
+    var didSecurityPolicyButtonButton: (() -> Void)?
+    var didShareAppTappedButton: (() -> Void)?
+    var didConditionsOfUseButton: (() -> Void)?
+    var didPrivacyPolicyButton: (() -> Void)?
+    var didPressRateButton: (() -> Void)?
+
     private lazy var viewBackgroundView: UIView = {
             let view = UIView(frame: .zero)
             view.makeRoundCorners(20)
@@ -102,22 +108,22 @@ class LinksCell: UICollectionViewCell {
 
     // TODO: add links
     @objc private func securityPolicyButtonTapped() {
-        print("1")
+        didSecurityPolicyButtonButton?()
     }
 
     @objc private func shareAppTapped() {
-        print("2")
+        didShareAppTappedButton?()
     }
 
     @objc private func conditionsOfUseTapped() {
-        print("3")
+        didConditionsOfUseButton?()
     }
 
     @objc private func privacyPolicyTapped() {
-        print("4")
+        didPrivacyPolicyButton?()
     }
 
     @objc private func rateTheAppTapped() {
-        print("5")
+        didPressRateButton?()
     }
 }
