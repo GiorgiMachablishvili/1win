@@ -214,7 +214,6 @@
 				E3E8CCA72D57D3F3005B0FD2 /* Extension */,
 				E3E8CCA62D57D3ED005B0FD2 /* Fonts */,
 				E3E8CC972D57D35A005B0FD2 /* Assets.xcassets */,
-				E3E8CD1A2D5E0368005B0FD2 /* New Group */,
 				E3E8CC992D57D35A005B0FD2 /* LaunchScreen.storyboard */,
 				E3E8CC9C2D57D35A005B0FD2 /* Info.plist */,
 			);
@@ -405,13 +404,6 @@
 				E3E8CD0E2D5BE6D5005B0FD2 /* TrainingCell.swift */,
 			);
 			path = PopularTrainingCell;
-			sourceTree = "<group>";
-		};
-		E3E8CD1A2D5E0368005B0FD2 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
