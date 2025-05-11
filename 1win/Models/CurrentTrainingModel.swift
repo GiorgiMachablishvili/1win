@@ -1,9 +1,4 @@
-//
-//  CurrentTrainingModel.swift
-//  1win
-//
-//  Created by Gio's Mac on 13.02.25.
-//
+
 
 import Foundation
 

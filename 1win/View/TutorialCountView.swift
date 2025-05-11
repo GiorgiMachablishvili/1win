@@ -1,9 +1,4 @@
-//
-//  tutorialCountView.swift
-//  1win
-//
-//  Created by Gio's Mac on 17.02.25.
-//
+
 
 import UIKit
 import SnapKit

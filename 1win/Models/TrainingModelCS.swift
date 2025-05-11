@@ -1,9 +1,4 @@
-//
-//  AllTraining.swift
-//  1win
-//
-//  Created by Gio's Mac on 12.02.25.
-//
+
 
 import Foundation
 

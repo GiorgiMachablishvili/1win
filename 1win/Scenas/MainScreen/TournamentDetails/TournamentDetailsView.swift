@@ -1,9 +1,4 @@
-//
-//  TournamentDetailsView.swift
-//  1win
-//
-//  Created by Gio's Mac on 10.02.25.
-//
+
 
 import UIKit
 import SnapKit

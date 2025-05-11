@@ -1,9 +1,4 @@
-//
-//  QuizView.swift
-//  1win
-//
-//  Created by Gio's Mac on 13.02.25.
-//
+
 
 import UIKit
 import SnapKit

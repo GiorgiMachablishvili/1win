@@ -1,9 +1,4 @@
-//
-//  RecomendationView.swift
-//  1win
-//
-//  Created by Gio's Mac on 14.02.25.
-//
+
 
 import UIKit
 import SnapKit
