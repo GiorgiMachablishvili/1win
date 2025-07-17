@@ -12,52 +12,52 @@ class LinksCell: UICollectionViewCell {
     var didPressRateButton: (() -> Void)?
 
     private lazy var viewBackgroundView: UIView = {
-            let view = UIView(frame: .zero)
-            view.makeRoundCorners(20)
-            view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-            return view
-        }()
+        let view = UIView(frame: .zero)
+        view.makeRoundCorners(20)
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        return view
+    }()
 
-        private func createButton(leftImage: String, title: String, rightImage: String, action: Selector) -> UIButton {
-            let button = UIButton(type: .system)
-            button.setTitle(title, for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-            button.contentHorizontalAlignment = .left
-            button.backgroundColor = .clear
+    private func createButton(leftImage: String, title: String, rightImage: String, action: Selector) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        button.contentHorizontalAlignment = .left
+        button.backgroundColor = .clear
 
-            let leftImageView = UIImageView(image: UIImage(named: leftImage))
-            leftImageView.contentMode = .scaleAspectFit
-            button.addSubview(leftImageView)
+        let leftImageView = UIImageView(image: UIImage(named: leftImage))
+        leftImageView.contentMode = .scaleAspectFit
+        button.addSubview(leftImageView)
 
-            leftImageView.snp.makeConstraints { make in
-                make.leading.equalToSuperview().offset(16)
-                make.centerY.equalToSuperview()
-                make.width.height.equalTo(20)
-            }
-
-            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
-
-            let rightImageView = UIImageView(image: UIImage(named: rightImage))
-            rightImageView.contentMode = .scaleAspectFit
-            button.addSubview(rightImageView)
-
-            rightImageView.snp.makeConstraints { make in
-                make.trailing.equalToSuperview().inset(16)
-                make.centerY.equalToSuperview()
-                make.width.height.equalTo(8)
-            }
-
-            button.addTarget(self, action: action, for: .touchUpInside)
-
-            return button
+        leftImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(20)
         }
 
-        private lazy var securityPolicyButton = createButton(leftImage: "lock", title: "Security Policy", rightImage: "pointImage", action: #selector(securityPolicyButtonTapped))
-        private lazy var shareAppButton = createButton(leftImage: "share", title: "Share the app", rightImage: "pointImage", action: #selector(shareAppTapped))
-        private lazy var conditionsOfUseButton = createButton(leftImage: "note", title: "Conditions of Use", rightImage: "pointImage", action: #selector(conditionsOfUseTapped))
-        private lazy var privacyPolicyButton = createButton(leftImage: "messages", title: "Privacy Policy", rightImage: "pointImage", action: #selector(privacyPolicyTapped))
-        private lazy var rateTheAppButton = createButton(leftImage: "like", title: "Rate the app", rightImage: "pointImage", action: #selector(rateTheAppTapped))
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+
+        let rightImageView = UIImageView(image: UIImage(named: rightImage))
+        rightImageView.contentMode = .scaleAspectFit
+        button.addSubview(rightImageView)
+
+        rightImageView.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(16)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(8)
+        }
+
+        button.addTarget(self, action: action, for: .touchUpInside)
+
+        return button
+    }
+
+    private lazy var securityPolicyButton = createButton(leftImage: "lock", title: "Security Policy", rightImage: "pointImage", action: #selector(securityPolicyButtonTapped))
+    private lazy var shareAppButton = createButton(leftImage: "share", title: "Share the app", rightImage: "pointImage", action: #selector(shareAppTapped))
+    private lazy var conditionsOfUseButton = createButton(leftImage: "note", title: "Conditions of Use", rightImage: "pointImage", action: #selector(conditionsOfUseTapped))
+    private lazy var privacyPolicyButton = createButton(leftImage: "messages", title: "Privacy Policy", rightImage: "pointImage", action: #selector(privacyPolicyTapped))
+    private lazy var rateTheAppButton = createButton(leftImage: "like", title: "Rate the app", rightImage: "pointImage", action: #selector(rateTheAppTapped))
 
     override init(frame: CGRect) {
         super.init(frame: frame)

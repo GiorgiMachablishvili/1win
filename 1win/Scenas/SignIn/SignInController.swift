@@ -210,7 +210,18 @@ class SignInController: UIViewController {
         UserDefaults.standard.setValue(mockAppleToken, forKey: "AccountCredential")
 
         // Call createUser to simulate user creation
-        createUser()
+//        createUser()
+
+        UserDefaults.standard.setValue(true, forKey: "isGuestUser")
+
+        UserDefaults.standard.removeObject(forKey: "userId")
+        UserDefaults.standard.removeObject(forKey: "AccountCredential")
+
+        let mainViewTabBarController = MainViewControllerTab()
+        navigationController?.pushViewController(mainViewTabBarController, animated: true)
+
+
+
 
         //        let authorizationProvider = ASAuthorizationAppleIDProvider()
         //        let request = authorizationProvider.createRequest()
